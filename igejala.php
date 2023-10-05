@@ -176,8 +176,7 @@ if (isset($_POST["diagnosis"])) {
                 <hr>
                 <hr>
                 <p class="text-danger">Pilih gejala dan tentukan tingkat keyakinan terjadinya gejala yang Anda
-                    alami
-                    selama periode pramenstruasi dalam rentang waktu tahunan sesuai catatan riwayat gejala yang Anda
+                    alami sesuai gejala yang Anda
                     miliki atau ingat pada form yang tersedia.
                     Selanjutnya pilih tombol tambah untuk memasukan data kedalam tabel data diagnosis. Setelah itu
                     silahkan memilih tombol diagnosis untuk melanjutkan proses diagnosa.

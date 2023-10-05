@@ -73,7 +73,27 @@ $huruf = 'U';
 
 $id_user = $huruf. sprintf("%02s",$urutan);
 
+
 // akhir id user
+
+
+$query = "SELECT max(id_konsultasi) as max_code FROM konsultasi";
+
+$hasil = mysqli_query($conn, $query);
+
+$data = mysqli_fetch_assoc($hasil);
+
+$id = $data['max_code'];
+
+$urutan = (int)substr($id, 1,3);
+
+$urutan++;
+
+$huruf = 'K';
+
+$idk = $huruf. sprintf("%02s",$urutan);
+
+
 
 //ubah data
 
@@ -152,6 +172,7 @@ if (isset($ready)) {
 <-- mulai nav -->
     <section>
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-danger">
+            <?php if(isset($ready)) : ?>
             <ul class="navbar-nav ml-auto mr-auto">
                 <a href="./index.php" class="nav-link text-white">
                     Beranda
@@ -160,6 +181,7 @@ if (isset($ready)) {
                     Diagnosis
                 </a>
             </ul>
+            <?php endif;?>
             <ul class="navbar-nav ml-auto">
                 <?php if(isset($ready)) : ?>
                 <li class="nav-item dropdown pb-3 " style="margin-top: 2px; margin-right: 120px">
@@ -242,7 +264,7 @@ if (isset($ready)) {
 
     <section id="daftar" class="daftar pt-5 pb-5" style="margin-top: 150px;">
         <div class="container">
-            <h1 class="text-center pb-4">Pendaftaran Akun</h1>
+            <h1 class="text-center pb-4">Daftar</h1>
             <div class="card mt-2">
                 <div class="card-header bg-danger text-white font-weight-bold lead">
                     Form Pendaftaran
@@ -285,7 +307,9 @@ if (isset($ready)) {
 
                         <input type="text" name="clevel" value="client" style="display: none;">
 
-                        <button type="submit" class="btn btn-danger mt-3" name="btndaftar">Daftar</button>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-danger mt-3" name="btndaftar">Daftar</button>
+                        </div>
 
                     </form>
                 </div>
@@ -298,7 +322,7 @@ if (isset($ready)) {
     <!-- akhir daftar -->
     <?php if(isset($ready)) : ?>
 
-    <section id="" class=" pt-5 pb-5  ">
+    <section id="konsultasi" class=" pt-5 pb-5  ">
         <div class="container ">
 
             <h1 class="text-center pb-4">Konsultasi</h1>
@@ -309,25 +333,26 @@ if (isset($ready)) {
                 </div>
                 <div class="card-body">
                     <p class="text-black">Pilih Gejala dan tentukan Tingkat Keyakinan terjadinya gejala yang Anda alami
-                        selama periode pramenstruasi dalam rentang waktu tahunan sesuai catatan riwayat gejala yang Anda
+                        sesuai catatan riwayat gejala yang Anda
                         miliki atau ingat, pada form yang tersedia.
                         <br> Cara menjawab tingkat keyakinan:
-                        <br> Pilihan selalu dipilih jika anda selama pramenstruasi setiap bulannya selalu merasakan
-                        gejala tersebut.
-                        <br> Pilihan sering dapat anda pilih jika perbandingan bulan anda merasakan lebih besar
-                        dibandingkan saat anda tidak merasakan gejala. Contohnya pada 12 bulan, 8 bulan anda merasakan
-                        gejala tersebut dan 4 bulan anda tidak merasakan gejala tersebut.
-                        <br> Pilihan kadang dapat anda pilih jika perbandingan bulan anda merasakan sama atau hampir
-                        sama dengan saat anda tidak merasakan gejala tersebut. Contohnya dari 12 bulan, 6 bulan anda
-                        merasakan gejala dan 6 bulan anda tidak merasakan gejala tersebut.
-                        <br> Pilihan jarang dapat anda pilih jika perbandingan bulan anda merasakan gejala lebih kecil
-                        dibandingkan saat anda tidak merasakan gejala tersebut. Contohnya dari 12 bulan, 4 bulan anda
-                        merasakan gejala dan 8 bulan anda tidak merasakan gejala tersebut.
-                        <br> Pilihan tidak tahu dapat anda pilih jika anda tidak yakin mengalami gejala tersebut.
-                        <br> Pilihan tidak pernah dapat anda pilih jika selama pramenstruasi anda tidak pernah merasakan
-                        gejala tersebut.
-                        <br> Selanjutnya pilih Tombol Tambah untuk memasukan data kedalam Tabel Data Diagnosis. Setelah
-                        itu silahkan memilih Tombol Diagnosa untuk melanjutkan proses Diagnosis.
+                    <ul>
+                        <li> Pilihan sangat yakin dapat dipilih jika Anda Sangat yakin merasakan gejala
+                            Obsessive-Compulsive Disorder (OCD).</li>
+                        <li> Pilihan yakin dapat Anda pilih jika sering merasakan gejala OCD.</li>
+                        <li> Pilihan kadang dapat Anda pilih jika gejala tersebut terjadi hanya pada beberapa waktu
+                            tertentu, tidak secara konsisten. Ini menunjukkan bahwa gejala tersebut muncul sporadis.
+                        </li>
+                        <li> Pilihan jarang dapat Anda pilih jika gejala tersebut sangat jarang terjadi atau hanya
+                            sesekali. Ini menunjukkan bahwa gejala tersebut bukan masalah besar dalam hidup Anda.</li>
+                        <li> Pilihan tidak tahu dapat Anda pilih jika Anda tidak yakin seberapa sering gejala tersebut
+                            terjadi. Ini bisa digunakan jika Anda merasa bingung atau tidak tahu bagaimana menilai
+                            frekuensi gejala.</li>
+                        <li> Pilihan tidak pernah dapat Anda pilih jika Anda yakin bahwa Anda tidak pernah mengalami
+                            gejala tersebut. Ini menunjukkan bahwa gejala tersebut tidak ada dalam pengalaman Anda.</li>
+                    </ul>
+                    <br> Selanjutnya pilih Tombol Tambah untuk memasukan data kedalam Tabel Data Diagnosis. Setelah
+                    itu silahkan memilih Tombol Diagnosa untuk melanjutkan proses Diagnosis.
                     </p>
                 </div>
             </div>
@@ -337,7 +362,7 @@ if (isset($ready)) {
                     <form action="igejala.php" method="post" class="pb-4">
                         <button type="submit" name="btndiag"
                             class="diagnosis btn btn-danger text-wahite font-weight-bold"
-                            style="border-radius: 50px">Konsultasi</button>
+                            style="border-radius: 50px">Diagnosis</button>
                     </form>
                     <?php endif; ?>
                 </div>
@@ -402,12 +427,12 @@ if (isset($ready)) {
 
                                     <?php
 
-	   				$idpenyakit=$ko["id_kpenyakit"];
-	   				$dsol = mysqli_query($conn,"SELECT solusi FROM tpenyakit WHERE id_penyakit ='$idpenyakit'");  
-	   				$solu = mysqli_fetch_assoc($dsol);
-	   				$solusi = $solu["solusi"];
+                                    $idpenyakit=$ko["id_kpenyakit"];
+                                    $dsol = mysqli_query($conn,"SELECT solusi FROM tpenyakit WHERE id_penyakit ='$idpenyakit'");  
+                                    $solu = mysqli_fetch_assoc($dsol);
+                                    $solusi = $solu["solusi"];
 
-	   				 ?>
+                                    ?>
 
                                     <td class="font-weight-bold text-capitalize"><?=$solusi;?></td>
                                     <td class="text-capitalize text-justify"><?=$ko['kdate'];?></td>
@@ -419,9 +444,31 @@ if (isset($ready)) {
                             </table>
                         </div>
                     </form>
+                    <!-- tombol cetak laporan -->
+                    <!-- <hr> -->
+                    <!-- <form action="claporan.php" method="post">
+                        <div class="row mt-4">
+                            <div class="col-lg-12 d-flex justify-content-end">
+                                <button type="submit" class="btn btn-danger rounded-pill font-weight-bold"
+                                    name="cetakh">Cetak
+                                    <i class="fa fa-print"></i></button>
+                                <a href="#konsultasi" class="btn rounded-pill ml-3 btn-primary">Kembali</a> -->
+                    <!-- <a href="claporan.php" class="btn btn-success rounded-pill font-weight-bold" name="cetakh">Laporan <i class="fa fa-print"></i></a> -->
+                    <!-- </div> -->
+                    <!-- <div class="col mt-1">
+                                Cetak laporan hasil konsultasi untuk melihat jenis gangguan dan solusi yang
+                                tepat.
+                            </div> -->
+                    <!-- </div>
+
+                        <input type="text" hidden="" name="idk" value="<?=$idk;?>">
+                        <input type="text" hidden="" name="idkp" v-bind:value="topResult.n_penyakit">
+                        <input type="text" hidden="" name="pre" v-bind:value="topResult.believe">
+                    </form> -->
+
+                    <!-- akhir cetak laporan -->
                 </div>
             </div>
-
 
         </div>
     </section>

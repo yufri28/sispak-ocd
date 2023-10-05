@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 16 Des 2022 pada 16.00
--- Versi Server: 10.1.13-MariaDB
--- PHP Version: 5.6.23
+-- Waktu pembuatan: 05 Okt 2023 pada 04.31
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -51,44 +52,6 @@ CREATE TABLE `konsultasi` (
   `kdate` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `konsultasi`
---
-
-INSERT INTO `konsultasi` (`id_konsultasi`, `id_kuser`, `id_kpenyakit`, `kpenyakit`, `persentase`, `id_ksolusi`, `kdate`) VALUES
-('K01', 'U04', 'P01', 'anxiety', 90.06, 'S01', '07/12/2022, 06:17:53 am'),
-('K02', 'U05', 'P02', 'depression', 77.57, 'S02', '07/12/2022, 07:36:36 pm'),
-('K03', 'U06', 'P01', 'anxiety', 99.16, 'S01', '07/12/2022, 08:09:13 pm'),
-('K04', 'U07', 'P01', 'anxiety', 98.35, 'S01', '07/12/2022, 08:22:54 pm'),
-('K05', 'U08', 'P01', 'anxiety', 96.63, 'S01', '07/12/2022, 08:33:42 pm'),
-('K06', 'U09', 'P01', 'anxiety', 99.39, 'S01', '07/12/2022, 08:43:51 pm'),
-('K07', 'U10', 'P01', 'anxiety', 86.29, 'S01', '07/12/2022, 09:14:34 pm'),
-('K08', 'U11', 'P02', 'depression', 97.91, 'S02', '07/12/2022, 09:21:42 pm'),
-('K09', 'U12', 'P01', 'anxiety', 93.22, 'S01', '07/12/2022, 09:49:16 pm'),
-('K10', 'U13', 'P02', 'depression', 99.72, 'S02', '07/12/2022, 09:58:46 pm'),
-('K11', 'U14', 'P02', 'depression', 89.72, 'S02', '07/12/2022, 10:15:34 pm'),
-('K12', 'U15', 'P02', 'depression', 99.67, 'S02', '07/12/2022, 10:26:39 pm'),
-('K13', 'U16', 'P02', 'depression', 98.47, 'S02', '07/12/2022, 11:41:22 pm'),
-('K14', 'U17', 'P02', 'depression', 97.19, 'S02', '07/12/2022, 11:53:51 pm'),
-('K15', 'U18', 'P01', 'anxiety', 98.71, 'S01', '08/12/2022, 12:02:40 am'),
-('K16', 'U19', 'P02', 'depression', 88.25, 'S02', '08/12/2022, 12:22:52 am'),
-('K17', 'U20', 'P01', 'anxiety', 99.08, 'S01', '08/12/2022, 12:34:21 am'),
-('K18', 'U21', 'P01', 'anxiety', 97.53, 'S01', '08/12/2022, 02:08:19 pm'),
-('K19', 'U22', 'P01', 'anxiety', 85.64, 'S01', '08/12/2022, 02:18:02 pm'),
-('K20', 'U23', 'P02', 'depression', 89.33, 'S02', '08/12/2022, 02:40:58 pm'),
-('K21', 'U24', 'P02', 'depression', 94.67, 'S02', '08/12/2022, 03:00:21 pm'),
-('K22', 'U25', 'P02', 'depression', 96.87, 'S02', '08/12/2022, 03:57:54 pm'),
-('K23', 'U26', 'P01', 'anxiety', 98.01, 'S01', '08/12/2022, 04:14:00 pm'),
-('K24', 'U27', 'P01', 'anxiety', 95.9, 'S01', '08/12/2022, 04:37:45 pm'),
-('K25', 'U28', 'P02', 'depression', 94.31, 'S02', '08/12/2022, 04:52:20 pm'),
-('K26', 'U29', 'P01', 'anxiety', 92.3, 'S01', '08/12/2022, 05:43:41 pm'),
-('K27', 'U30', 'P02', 'depression', 99.81, 'S02', '08/12/2022, 06:53:29 pm'),
-('K28', 'U31', 'P01', 'anxiety', 99.35, 'S01', '08/12/2022, 07:28:41 pm'),
-('K29', 'U32', 'P01', 'anxiety', 92.74, 'S01', '08/12/2022, 07:38:49 pm'),
-('K30', 'U33', 'P01', 'anxiety', 94.51, 'S01', '08/12/2022, 08:02:13 pm'),
-('K31', 'U34', 'P02', 'depression', 75.82, 'S02', '15/12/2022, 07:30:43 pm'),
-('K32', 'U35', 'P01', 'anxiety', 98.09, 'S01', '15/12/2022, 07:53:11 pm');
-
 -- --------------------------------------------------------
 
 --
@@ -101,16 +64,6 @@ CREATE TABLE `solusi` (
   `n_spenyakit` varchar(100) NOT NULL,
   `des_solusi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `solusi`
---
-
-INSERT INTO `solusi` (`id_solusi`, `id_spenyakit`, `n_spenyakit`, `des_solusi`) VALUES
-('S01', 'P01', 'anxiety', '(1). Meningkatkan konsumsi makanan berserat, (2). Mengonsumsi suplemen vitamin B dan magnesium, (3). Membatasi konsumsi kafein dan alkohol, (4). Rutin berolahraga contohnya olahraga aerobik, (5). Relaksasi (yoga, meditasi, atau terapi pijat), (6). Perbanyak istirahat atau tidur yang cukup, (7). Mengonsumsi karbohidrat kompleks, (8). Minuman berkalsium, seperti yoghurt dan susu, (9). Lakukan teknik relaksasi ringan (teknik relaksasi pernapasan atau relaksasi otot)'),
-('S02', 'P02', 'depression', '(1). Mengonsumsi suplemen vitamin B dan magnesium seperti ikan, ayam, dan sereal, (2). Komunikasikan dengan orang terdekat, (3). Lakukan teknik relaksasi ringan (teknik relaksasi pernapasan atau relaksasi otot), (4). Relaksasi (yoga atau meditasi), (5). Konsultasikan ke psikolog untuk diberikan psikoterapi\r\n'),
-('S03', 'P03', 'craving', '(1). Mengurangi konsumsi gula, coklat, garam, dan lemak jenuh, (2). Mengonsumsi makanan yang mengandung asam lemak esensial (omega 6) dan magnesium, (3). Mengonsumsi suplemen vitamin B, (4). Berolahraga dan memperbanyak aktivitas, (5). Menjaga pola makan dan mengatur jadwal makan.'),
-('S04', 'P04', 'hyperhydration', '(1). Mengurangi asupan garam dan gula dalam makanan, (2). Meningkatkan konsumsi makanan tinggi protein dan kalsium, (3). Mengonsumsi obat diuretik.');
 
 -- --------------------------------------------------------
 
@@ -128,50 +81,6 @@ CREATE TABLE `taturancf` (
   `bobotcf` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `taturancf`
---
-
-INSERT INTO `taturancf` (`id_cf`, `id_agejala`, `agejala`, `id_apenyakit`, `apenyakit`, `frasa`, `bobotcf`) VALUES
-('A01', 'G01', 'rasa cemas berlebihan', 'P01', 'anxiety', 'jarang', 0.4),
-('A02', 'G02', 'perasaan lebih sensitif', 'P01', 'anxiety', 'jarang', 0.4),
-('A03', 'G03', 'mudah marah', 'P01', 'anxiety', 'jarang', 0.4),
-('A04', 'G04', 'mudah tersinggung', 'P01', 'anxiety', 'jarang', 0.4),
-('A05', 'G05', 'emosi tidak stabil', 'P01', 'anxiety', 'kadang', 0.6),
-('A06', 'G06', 'syaraf tegang', 'P01', 'anxiety', 'tidak tahu', 0.2),
-('A07', 'G07', 'depresi ringan hingga sedang', 'P01', 'anxiety', 'jarang', 0.4),
-('A08', 'G08', 'stress', 'P01', 'anxiety', 'jarang', 0.4),
-('A09', 'G10', 'cepat lelah', 'P01', 'anxiety', 'jarang', 0.4),
-('A10', 'G11', 'jantung berdebar', 'P01', 'anxiety', 'sering', 0.8),
-('A11', 'G16', 'gangguan konsentrasi dan kemam', 'P01', 'anxiety', 'jarang', 0.4),
-('A12', 'G27', 'gangguan saluran pencernaan (m', 'P01', 'anxiety', 'sering', 0.8),
-('A13', 'G02', 'perasaan lebih sensitif', 'P02', 'depression', 'jarang', 0.4),
-('A14', 'G07', 'depresi ringan hingga sedang', 'P02', 'depression', 'jarang', 0.4),
-('A15', 'G08', 'stress', 'P02', 'depression', 'jarang', 0.4),
-('A16', 'G10', 'cepat lelah', 'P02', 'depression', 'jarang', 0.4),
-('A17', 'G13', 'lemah atau tidak bersemangat a', 'P02', 'depression', 'kadang', 0.6),
-('A18', 'G14', 'perasaan sedih', 'P02', 'depression', 'jarang', 0.4),
-('A19', 'G15', 'gangguan tidur', 'P02', 'depression', 'jarang', 0.4),
-('A20', 'G16', 'gangguan konsentrasi dan kemam', 'P02', 'depression', 'jarang', 0.4),
-('A21', 'G17', 'bingung', 'P02', 'depression', 'jarang', 0.4),
-('A22', 'G18', 'sulit mengucapkan kata-kata', 'P02', 'depression', 'jarang', 0.4),
-('A23', 'G19', 'rasa ingin bunuh diri', 'P02', 'depression', 'kadang', 0.6),
-('A24', 'G20', 'kepercayaan diri berkurang', 'P02', 'depression', 'jarang', 0.4),
-('A25', 'G21', 'nafsu makan menurun', 'P02', 'depression', 'jarang', 0.4),
-('A26', 'G08', 'stress', 'P03', 'craving', 'jarang', 0.4),
-('A27', 'G09', 'sering merasa lapar atau ngida', 'P03', 'craving', 'jarang', 0.4),
-('A28', 'G10', 'cepat lelah', 'P03', 'craving', 'jarang', 0.4),
-('A29', 'G11', 'jantung berdebar', 'P03', 'craving', 'jarang', 0.4),
-('A30', 'G12', 'pusing', 'P03', 'craving', 'jarang', 0.4),
-('A31', 'G26', 'peningkatan berat badan', 'P03', 'craving', 'jarang', 0.4),
-('A32', 'G17', 'bingung', 'P04', 'hyperhydration', 'sering', 0.8),
-('A33', 'G22', 'pembengkakan wajah', 'P04', 'hyperhydration', 'tidak tahu', 0.2),
-('A34', 'G23', 'pembengkakan tangan dan kaki', 'P04', 'hyperhydration', 'tidak tahu', 0.2),
-('A35', 'G24', 'perut kembung', 'P04', 'hyperhydration', 'jarang', 0.4),
-('A36', 'G25', 'nyeri payudara', 'P04', 'hyperhydration', 'tidak tahu', 0.2),
-('A37', 'G26', 'peningkatan berat badan', 'P04', 'hyperhydration', 'tidak tahu', 0.2),
-('A38', 'G27', 'gangguan saluran pencernaan (m', 'P04', 'hyperhydration', 'sering', 0.8);
-
 -- --------------------------------------------------------
 
 --
@@ -180,41 +89,19 @@ INSERT INTO `taturancf` (`id_cf`, `id_agejala`, `agejala`, `id_apenyakit`, `apen
 
 CREATE TABLE `tgejala` (
   `id_gejala` varchar(10) NOT NULL,
-  `n_gejala` varchar(100) NOT NULL
+  `n_gejala` varchar(100) NOT NULL,
+  `deskripsi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tgejala`
 --
 
-INSERT INTO `tgejala` (`id_gejala`, `n_gejala`) VALUES
-('G01', 'rasa cemas berlebihan'),
-('G02', 'perasaan lebih sensitif'),
-('G03', 'mudah marah'),
-('G04', 'mudah tersinggung'),
-('G05', 'emosi tidak stabil'),
-('G06', 'syaraf tegang'),
-('G07', 'depresi ringan hingga sedang'),
-('G08', 'stress'),
-('G09', 'sering merasa lapar atau ngidam'),
-('G10', 'cepat lelah'),
-('G11', 'jantung berdebar'),
-('G12', 'pusing'),
-('G13', 'lemah atau tidak bersemangat atau kehilangan minat'),
-('G14', 'perasaan sedih'),
-('G15', 'gangguan tidur'),
-('G16', 'gangguan konsentrasi dan kemampuan mengingat'),
-('G17', 'bingung'),
-('G18', 'sulit mengucapkan kata-kata'),
-('G19', 'rasa ingin bunuh diri'),
-('G20', 'kepercayaan diri berkurang'),
-('G21', 'nafsu makan menurun'),
-('G22', 'pembengkakan wajah'),
-('G23', 'pembengkakan tangan dan kaki'),
-('G24', 'perut kembung'),
-('G25', 'nyeri payudara'),
-('G26', 'peningkatan berat badan'),
-('G27', 'gangguan saluran pencernaan (mual atau diare)');
+INSERT INTO `tgejala` (`id_gejala`, `n_gejala`, `deskripsi`) VALUES
+('G01', 'muncul dorongan untuk melakukan suatu kegiatan berulang-ulang', 'Muncul dorongan untuk melakukan suatu kegiatan berulang-ulang menggambarkan situasi di mana seseorang merasakan hasrat atau keinginan kuat untuk melakukan suatu tindakan atau kegiatan secara berulang kali. '),
+('G02', 'terganggunya rutinitas normal', 'Mengacu pada situasi di mana pola kehidupan atau aktivitas sehari-hari seseorang mengalami gangguan atau perubahan yang tidak biasa.'),
+('G03', 'memburuknya hubungan sosial', 'Memburuknya hubungan sosial mengacu pada kondisi di mana hubungan antara individu atau kelompok menjadi tidak sehat, tidak harmonis, atau konflik terjadi. '),
+('G04', 'munculnya dorongan, kekhawatiran, dan bayangan-bayangan yang terus mengganggu yang menyebabkan kegel', 'Munculnya dorongan, kekhawatiran, dan bayangan-bayangan yang terus mengganggu yang menyebabkan kegelisahan	Ini mengacu pada timbulnya impuls atau keinginan yang kuat untuk melakukan sesuatu');
 
 -- --------------------------------------------------------
 
@@ -233,10 +120,10 @@ CREATE TABLE `tpenyakit` (
 --
 
 INSERT INTO `tpenyakit` (`id_penyakit`, `n_penyakit`, `solusi`) VALUES
-('P01', 'anxiety', '(1). meningkatkan konsumsi makanan berserat, (2). mengonsumsi suplemen vitamin b dan magnesium, (3). membatasi konsumsi kafein dan alkohol, (4). rutin berolahraga contohnya olahraga aerobik, (5). relaksasi (yoga, meditasi, atau terapi pijat), (6). perbanyak istirahat atau tidur yang cukup, (7). mengonsumsi karbohidrat kompleks, (8). mengonsumsi minuman berkalsium, seperti yoghurt dan susu, (9). lakukan teknik relaksasi ringan (teknik relaksasi pernapasan atau relaksasi otot).'),
-('P02', 'depression', '(1). mengonsumsi suplemen vitamin b dan magnesium seperti ikan, ayam, dan sereal, (2). komunikasikan dengan orang terdekat, (3). lakukan teknik relaksasi ringan (teknik relaksasi pernapasan atau relaksasi otot), (4). lakukan relaksasi seperti yoga atau meditasi, (5). konsultasikan ke psikolog untuk diberikan psikoterapi.'),
-('P03', 'craving', '(1). mengurangi konsumsi gula, coklat, garam, dan lemak jenuh, (2). mengonsumsi makanan yang mengandung asam lemak esensial (omega 6) dan magnesium, (3). mengonsumsi suplemen vitamin b, (4). berolahraga dan memperbanyak aktivitas, (5). menjaga pola makan dan mengatur jadwal makan.'),
-('P04', 'hyperhydration', '(1). mengurangi asupan garam dan gula dalam makanan, (2). meningkatkan konsumsi makanan tinggi protein dan kalsium, (3). mengonsumsi obat diuretik.');
+('P01', 'forbbiden thought', '1. berpikir kembali\r\n2. cari tahu kebenaran sebelum bertindak\r\n3. cari bantuan penjelasan pada psikolog\r\n'),
+('P02', 'cleaning', '1. berpikir kembali / panggil memori ingatan bahwa haltersebut sudah dilakukan\r\n2. konsultasikan pada profesional seperti psikolog'),
+('P03', 'symetry', '1. berpikir ulang tentang hal yang sudah di lakukan\r\n2. terapi dengan bantuan psikolog\r\n'),
+('P04', 'harm', '1. cari coping stress yang efektif seperti olahraga dan self care\r\n2. cari bantuan konselingdan terapi psikolog\r\n');
 
 -- --------------------------------------------------------
 
@@ -292,14 +179,16 @@ INSERT INTO `tuser` (`id_tuser`, `username`, `password`, `nama`, `alamat`, `hp`,
 ('U32', 'donnaapryanti', '$2y$10$cyWShnWlu6wFSxdjBmgHbOGLG3Fw/6FYE.NHqHMWzSMV4RG1W.59a', 'Donna Apryanti Dopongtonung', 'Kupang', '08512837291', 'client'),
 ('U33', 'mariahipir', '$2y$10$SV0cfai0DLD3Ote6CFv4bufaHOf.hRXvmdk.0mWmeMm4GW/unk80O', 'Maria Fransiska I. L. Hipir', 'Kupang', '08126312789', 'client'),
 ('U34', 'ulfahamzah', '$2y$10$mCOT7K3FCBBCCeyMGeMQGen./pp.I4EKSLSEm5/s3KsZpsta3SMd6', 'Ulfa Hamzah', 'Kupang', '081252891288', 'client'),
-('U35', 'dianpolly', '$2y$10$FPe89fLcySN9RNdMdB7EPueP6WdvNepMlyKEON4iSGjRPKjRRxHlO', 'Dian Polly', 'Kupang', '081263817293', 'client');
+('U35', 'dianpolly', '$2y$10$FPe89fLcySN9RNdMdB7EPueP6WdvNepMlyKEON4iSGjRPKjRRxHlO', 'Dian Polly', 'Kupang', '081263817293', 'client'),
+('U36', 'aldho1', '$2y$10$CEULL81zLOuQVNmmcWw4ceWi/EC7vLuz.3XrTIwc39PC3SekVebBq', 'aldho', 'aldho', '3432222222', 'client'),
+('U37', 'yufri', '$2y$10$Pc7ypqw42Cynsbzo0yiXneBlgMZ5XZHE0OMwRmimzADvqObpfr04m', 'yupiiii', 'dsa', '3.1221231231321', 'client');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `diagnosis`
+-- Indeks untuk tabel `diagnosis`
 --
 ALTER TABLE `diagnosis`
   ADD PRIMARY KEY (`id_d`),
@@ -307,7 +196,7 @@ ALTER TABLE `diagnosis`
   ADD KEY `iddgej` (`iddgej`);
 
 --
--- Indexes for table `konsultasi`
+-- Indeks untuk tabel `konsultasi`
 --
 ALTER TABLE `konsultasi`
   ADD PRIMARY KEY (`id_konsultasi`),
@@ -316,14 +205,14 @@ ALTER TABLE `konsultasi`
   ADD KEY `id_kuser` (`id_kuser`);
 
 --
--- Indexes for table `solusi`
+-- Indeks untuk tabel `solusi`
 --
 ALTER TABLE `solusi`
   ADD PRIMARY KEY (`id_solusi`),
   ADD KEY `id_spenyakit` (`id_spenyakit`);
 
 --
--- Indexes for table `taturancf`
+-- Indeks untuk tabel `taturancf`
 --
 ALTER TABLE `taturancf`
   ADD PRIMARY KEY (`id_cf`),
@@ -331,19 +220,19 @@ ALTER TABLE `taturancf`
   ADD KEY `id_apenyakit` (`id_apenyakit`);
 
 --
--- Indexes for table `tgejala`
+-- Indeks untuk tabel `tgejala`
 --
 ALTER TABLE `tgejala`
   ADD PRIMARY KEY (`id_gejala`);
 
 --
--- Indexes for table `tpenyakit`
+-- Indeks untuk tabel `tpenyakit`
 --
 ALTER TABLE `tpenyakit`
   ADD PRIMARY KEY (`id_penyakit`);
 
 --
--- Indexes for table `tuser`
+-- Indeks untuk tabel `tuser`
 --
 ALTER TABLE `tuser`
   ADD PRIMARY KEY (`id_tuser`);
@@ -379,6 +268,7 @@ ALTER TABLE `solusi`
 ALTER TABLE `taturancf`
   ADD CONSTRAINT `taturancf_ibfk_1` FOREIGN KEY (`id_agejala`) REFERENCES `tgejala` (`id_gejala`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `taturancf_ibfk_2` FOREIGN KEY (`id_apenyakit`) REFERENCES `tpenyakit` (`id_penyakit`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

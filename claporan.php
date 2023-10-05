@@ -75,10 +75,10 @@ $html='<!DOCTYPE html>
 <td class="L">
 <h2>LAPORAN</h2>
 <h5>HASIL DIAGNOSIS</h5>
-<h5>GANGGUAN SINDROM PRAMENSTRUASI</h5>
+<h5>GANGGUAN OBSESSIVE COMPULSIVE DISORDER</h5>
 </td>
 <td class="sispak">
-<h5>Sistem Pakar Diagnosa Gangguan Sindrom Pramenstruasi Menggunakan Metode <i>Certainty Factor</i></h5>
+<h5>Sistem Pakar Diagnosa Gangguan Obsessive Compulsive Disorder (OCD) Menggunakan Metode <i>Certainty Factor</i></h5>
 </td>
 </tr>
 </table>
@@ -131,7 +131,7 @@ $html .='
 $html .='
 </table>
 
-<p class="insick">Berdasarkan hasil diagnosa <b>Sistem Pakar Diagnosa Gangguan Sindrom Pramenstruasi Menggunakan Metode <i>Certainty Factor</i></b> yang dinilai dari gejala dan tingkat keyakinan yang dipilih oleh pasien, mendapatkan hasil persentase tertinggi sebesar <b><i>'.$persentase.'%</i></b> yang merujuk pada jenis gangguan :</p>
+<p class="insick">Berdasarkan hasil diagnosa <b>Sistem Pakar Diagnosa Gangguan Obsessive Compulsive Disorder (ODC) Menggunakan Metode <i>Certainty Factor</i></b> yang dinilai dari gejala dan tingkat keyakinan yang dipilih oleh pasien, mendapatkan hasil persentase tertinggi sebesar <b><i>'.$persentase.'%</i></b> yang merujuk pada jenis gangguan :</p>
 
 <h2 class="sick">'.$idp." : ".$penyakit.'</h2>
 

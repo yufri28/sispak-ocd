@@ -149,6 +149,7 @@ global $conn;
 
 $idG = htmlspecialchars($data["idG"]);
 $nG = htmlspecialchars(strtolower(stripslashes($data["ngejala"])));
+$desk = htmlspecialchars(stripslashes($data["deskripsi"]));
 	
 
 	//cek nama gejala sudah ada atau belum
@@ -169,7 +170,7 @@ $nG = htmlspecialchars(strtolower(stripslashes($data["ngejala"])));
 //query insert data
 
 	$query = "INSERT INTO tgejala 
-	VALUES ('$idG','$nG')";
+	VALUES ('$idG','$nG','$desk')";
 
 
 mysqli_query($conn,$query);
@@ -199,7 +200,7 @@ global $conn;
 
 $idG = htmlspecialchars($data["uidG"]);
 $nG = htmlspecialchars(strtolower(stripslashes($data["ungejala"])));
-
+$desk = htmlspecialchars(stripslashes($data["deskripsi"]));
 
 //cek username sudah ada atau belum
 
@@ -217,7 +218,7 @@ $nG = htmlspecialchars(strtolower(stripslashes($data["ungejala"])));
 	}
 
 $query = "UPDATE tgejala SET					
-			n_gejala='$nG'
+			n_gejala='$nG',deskripsi='$desk'
 			WHERE id_gejala = '$idG'";
 
 

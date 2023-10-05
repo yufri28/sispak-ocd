@@ -36,7 +36,7 @@ $html='<!DOCTYPE html>
 <table>
 <tr>
 <td>
-<h3>Data Gangguan Sistem Pakar Diagnosis Gangguan Sindrom Pramenstruasi Menggunakan Metode <i>Certainty Factor</i>
+<h3>Data Gangguan Sistem Pakar Diagnosis Gangguan Obsessive-Compulsive Disorder Menggunakan Metode <i>Certainty Factor</i>
 </td>
 </tr>
 </table>

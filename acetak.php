@@ -37,7 +37,7 @@ $html='<!DOCTYPE html>
 <table>
 <tr>
 <td>
-<h3>Data Aturan Sistem Pakar Diagnosis Gangguan Sindrom Pramenstruasi Menggunakan Metode <i>Certainty Factor</i></h3>
+<h3>Data Aturan Sistem Pakar Diagnosis Gangguan Obsessive Compulsive Disorder (OCD) Metode <i>Certainty Factor</i></h3>
 </td>
 </tr>
 </table>

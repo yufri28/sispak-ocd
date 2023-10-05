@@ -202,18 +202,18 @@ $adata = count(query("SELECT * FROM taturancf"));
                     <div class="row ml-6">
                         <div class="card">
                             <div class="card-body">
-                                <p>Sindrom pramenstruasi adalah gabungan dari gejala fisik dan atau fisiologis yang
-                                    biasanya terjadi mulai beberapa hari sampai satu
-                                    minggu sebelum haid dan menghilang setelah haid datang (Mitayani, 2009).</p>
+                                <p>Obsessive Compulsive Disorder (OCD) adalah gangguan yang ditandai dengan adanya
+                                    pikiran yang mengganggu dan/atau perilaku berulang yang dimaksudkan untuk mengurangi
+                                    kecemasan. (Ventresca dkk., 2022).</p>
                             </div>
                         </div> <br>
                         <div class="card">
                             <div class="card-body">
-                                <p>Sistem pakar / <i> expert system </i> merupakan sebuah sistem yang dapat mengadopsi
-                                    pengetahuan pakar ke dalam sebuah sistem dalam komputer sehingga sistem tersebut
-                                    memiliki
-                                    kemampuan untuk menyelesaikan masalah seperti yang biasa dilakukan oleh pakar
-                                    (Kusumadewi, 2003).</p>
+                                <p>Sistem pakar adalah salah satu cabang dari kecerdasan buatan (Artificial
+                                    Intelligence), yang merupakan suatu aplikasi komputerisasi yang berusaha menirukan
+                                    proses penalaran dari seorang ahli dalam memecahkan masalah spesifik dan membuat
+                                    suatu keputusan atau kesimpulan karena pengetahuannya disimpan di dalam basis
+                                    pengetahuan untuk diproses pemecahan masalah. (Ongko, 2013). </p>
                             </div>
                         </div>
                     </div>

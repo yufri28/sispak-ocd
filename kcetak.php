@@ -37,7 +37,7 @@ $html='<!DOCTYPE html>
 <table>
 <tr>
 <td>
-<h3>Data Riwayat Diagnosa Sistem Pakar Diagnosa Gangguan Sindrom Pramenstruasi Menggunakan Metode <i>Certainty Factor</i>
+<h3>Data Riwayat Diagnosa Sistem Pakar Diagnosa Gangguan Obsessive-Compulsive Disorder Menggunakan Metode <i>Certainty Factor</i>
 </td>
 </tr>
 </table>

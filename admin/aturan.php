@@ -666,8 +666,8 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
 
                                     <option class="font-italic" value="" hidden="" disabled="" selected="">----</option>
 
-                                    <option class="font-weight-bold text-dark" value="selalu">Selalu (1)</option>
-                                    <option class="font-weight-bold text-dark" value="sering">Sering (0.8)</option>
+                                    <option class="font-weight-bold text-dark" value="selalu">Sangat yakin (1)</option>
+                                    <option class="font-weight-bold text-dark" value="sering">Yakin (0.8)</option>
                                     <option class="font-weight-bold text-dark" value="kadang">Kadang (0.6)</option>
                                     <option class="font-weight-bold text-dark" value="jarang">Jarang (0.4)</option>
                                     <option class="font-weight-bold text-dark" value="tidak tahu">Tidak tahu (0.2)
@@ -762,8 +762,8 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
 
                                     <option class="font-italic" value="" hidden="" disabled="" selected="">----</option>
 
-                                    <option class="font-weight-bold text-dark" value="selalu">Selalu (1)</option>
-                                    <option class="font-weight-bold text-dark" value="sering">Sering (0.8)</option>
+                                    <option class="font-weight-bold text-dark" value="selalu">Sangat yakin (1)</option>
+                                    <option class="font-weight-bold text-dark" value="sering">Yakin (0.8)</option>
                                     <option class="font-weight-bold text-dark" value="kadang">Kadang (0.6)</option>
                                     <option class="font-weight-bold text-dark" value="jarang">Jarang (0.4)</option>
                                     <option class="font-weight-bold text-dark" value="tidak tahu">Tidak tahu (0.2)

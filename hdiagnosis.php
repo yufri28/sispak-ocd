@@ -106,6 +106,52 @@ if(isset($_GET['kode_penyakit'])){
 </head>
 
 <body>
+    <!-- jumbotron -->
+
+    <section>
+        <div class="jumbotron jumbotron-fluid pb-4 mb-0 pt-4 bg-light">
+            <div class="container">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-danger">
+                    <ul class="navbar-nav ml-auto mr-auto">
+                        <a href="./index.php"
+                            onclick="if (!confirm('Anda yakin ingin membatalkan proses Diagnosis?')) { event.preventDefault(); }"
+                            class="nav-link text-white">
+                            Beranda
+                        </a>
+                        <a href="./igejala.php" class="nav-link text-white">
+                            Diagnosis
+                        </a>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <?php if(isset($ready)) : ?>
+                        <li class="nav-item dropdown pb-3 " style="margin-top: 2px; margin-right: 120px">
+                            <a class="dropdown-toggle active text-decoration-none text-reset" href="#"
+                                id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"><img class="img-profile rounded-circle "
+                                    src="admin/img/undraw_profile.svg" style="width: 30px;"> <b class="lead"
+                                    style="color: white;"><?=$_SESSION['username'];?></b></a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item text-dark font-weight-bold page-sc" href="#riwayat"><i
+                                        class="fa fa-history"></i> Riwayat Konsultasi</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-dark font-weight-bold" data-toggle="modal"
+                                    data-target="#ubah_data" href="#ubah_data"><i class="fa fa-user-edit"></i> Kelola
+                                    Akun</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger font-weight-bold shadow" href="logout.php"
+                                    onclick="return confirm('Anda yakin ingin keluar?')"><i
+                                        class="fas fa-sign-out-alt"></i>
+                                    Keluar</a>
+                            </div>
+                        </li>
+                        <?php endif; ?>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- akhir jumbotron -->
 
     <section>
 
@@ -113,8 +159,9 @@ if(isset($_GET['kode_penyakit'])){
             <div class="container">
 
                 <hr>
-                <p class="text-black">Hasil konsultasi berupa persentase jenis gangguan sindrom pramenstruasi.
-                    <b> Jika tidak ditampilkan persentase jenis gangguan, maka sindrom pramenstruasi (PMS) Anda normal.
+                <p class="text-black">Hasil konsultasi berupa persentase jenis gangguan Obsessive Compulsive Disorder.
+                    <b> Jika tidak ditampilkan persentase jenis gangguan, maka Obsessive Compulsive Disorder (OCD) Anda
+                        masuk dalam kategori normal.
                         <b>
                 </p>
             </div>
@@ -232,15 +279,15 @@ if(isset($_GET['kode_penyakit'])){
                             <form action="claporan.php" method="post">
 
                                 <div class="row mt-4">
-                                    <div class="col-lg-2">
+                                    <div class="col-lg-12 d-flex justify-content-end">
                                         <button type="submit" class="btn btn-danger rounded-pill font-weight-bold"
-                                            name="cetakh">Laporan <i class="fa fa-print"></i></button>
+                                            name="cetakh">Cetak <i class="fa fa-print"></i></button>
                                         <!-- <a href="claporan.php" class="btn btn-success rounded-pill font-weight-bold" name="cetakh">Laporan <i class="fa fa-print"></i></a> -->
                                     </div>
-                                    <div class="col mt-1">
+                                    <!-- <div class="col mt-1">
                                         Cetak laporan hasil konsultasi untuk melihat jenis gangguan dan solusi yang
                                         tepat.
-                                    </div>
+                                    </div> -->
                                 </div>
 
                                 <input type="text" hidden="" name="idk" value="<?= $idk;?>">
@@ -269,7 +316,10 @@ if(isset($_GET['kode_penyakit'])){
                 <input type="text" hidden="" name="pre" v-bind:value="topResult.believe">
                 <input type="text" hidden="" name="date" value="<?= $date;?>">
 
-                <button name="selesai" class="btn btn-dark font-weight-bold mr-3 mb-2">SELESAI</button>
+                <div class="d-flex justify-content-end">
+                    <a class="btn btn-primary font-weight-bold mr-3 mb-2" href="./igejala.php">ULANG</a>
+                    <button name="selesai" class="btn btn-dark font-weight-bold mr-3 mb-2">SELESAI</button>
+                </div>
 
 
             </form>
@@ -277,10 +327,10 @@ if(isset($_GET['kode_penyakit'])){
         </div>
 
     </section> <br>
-    <form action="" method="post">
+    <!-- <form action="" method="post">
         <button name="batal" class="btn btn-dark mr-3 mb-2" style="margin-left:1100px;"
             onclick="return confirm('Anda yakin ingin kembali?')">Kembali</button>
-    </form>
+    </form> -->
 
     <!-- akhir form data -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

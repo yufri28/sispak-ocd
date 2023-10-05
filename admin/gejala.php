@@ -80,7 +80,7 @@ $gejala = query("SELECT * FROM tgejala ORDER BY id_gejala DESC LIMIT $hal_awal, 
 
 
 
-//tabah gejala
+//tambah gejala
 
 if (isset($_POST["btnsimpan"]) ) {
 
@@ -459,6 +459,7 @@ $id_gejala = $huruf. sprintf("%02s",$urutan);
                                                         <th>No.</th>
                                                         <th>ID</th>
                                                         <th>Gejala</th>
+                                                        <th>Deskripsi</th>
                                                         <th>Aksi</th>
 
                                                     </tr>
@@ -474,9 +475,11 @@ $id_gejala = $huruf. sprintf("%02s",$urutan);
                                                         <td class="text-center"><?=$ge['id_gejala'];?></td>
                                                         <td class="font-weight-bold text-capitalize">
                                                             <?=$ge['n_gejala'];?></td>
+                                                        <td class="text-center"><?=$ge['deskripsi'];?></td>
                                                         <td class="text-center">
                                                             <a id="ubahg" class="btn btn-primary btn-sm"
-                                                                data-toggle="modal" data-target="#ubah_data"
+                                                                data-toggle="modal"
+                                                                data-target="#ubah_data<?=$ge['id_gejala'];?>"
                                                                 data-id="<?=$ge['id_gejala'];?>"
                                                                 data-gejala="<?=$ge['n_gejala'];?>"><i
                                                                     class="fa fa-edit"></i> edit</a>
@@ -657,6 +660,10 @@ $id_gejala = $huruf. sprintf("%02s",$urutan);
                                 <label for="ngejala" class="col-form-label">Gejala :</label>
                                 <input type="text" class="form-control" name="ngejala" id="ngejala" required="">
                             </div>
+                            <div class="form-group">
+                                <label for="deskripsi" class="col-form-label">Deskripsi :</label>
+                                <textarea rows="5" cols="" class="form-control" name="deskripsi" required></textarea>
+                            </div>
 
                     </div>
                     <div class="modal-footer">
@@ -670,8 +677,9 @@ $id_gejala = $huruf. sprintf("%02s",$urutan);
 
 
         <!-- Modal Ubah Data Gejala -->
-
-        <div class="modal fade" id="ubah_data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <?php foreach($gejala as $gej):?>
+        <div class="modal fade" id="ubah_data<?=$gej['id_gejala']?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -686,12 +694,19 @@ $id_gejala = $huruf. sprintf("%02s",$urutan);
 
                             <div class="form-group">
                                 <label for="idG" class="col-form-label">ID :</label>
-                                <input class="form-control" type="text" id="uidG" name="uidG" readonly>
+                                <input class="form-control" value="<?=$gej['id_gejala'];?>" type="text" id="uidG"
+                                    name="uidG" readonly>
                             </div>
 
                             <div class="form-group">
                                 <label for="ngejala" class="col-form-label">Gejala :</label>
-                                <input type="text" class="form-control" name="ungejala" id="ungejala" required="">
+                                <input type="text" value="<?=$gej['n_gejala'];?>" class="form-control" name="ungejala"
+                                    id="ungejala" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="deskripsi" class="col-form-label">Deskripsi :</label>
+                                <textarea rows="5" cols="" class="form-control" name="deskripsi"
+                                    required><?=$gej['deskripsi'];?></textarea>
                             </div>
 
                     </div>
@@ -704,7 +719,7 @@ $id_gejala = $huruf. sprintf("%02s",$urutan);
                 </div>
             </div>
         </div>
-
+        <?php endforeach;?>
 
 
         <!-- Bootstrap core JavaScript-->
