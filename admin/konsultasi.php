@@ -179,7 +179,7 @@ $kons = query("SELECT * FROM konsultasi ORDER BY id_konsultasi DESC LIMIT $hal_a
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-            <li class="nav-item bg-gradient-danger">
+            <li class="nav-item bg-gradient-primary">
                 <a class="nav-link" href="konsultasi.php">
                     <i class="fas fa-history"></i>
                     <span>Riwayat Diagnosa</span></a>
@@ -218,7 +218,7 @@ $kons = query("SELECT * FROM konsultasi ORDER BY id_konsultasi DESC LIMIT $hal_a
                                 autocomplete="off" autofocus="">
 
                             <div class="input-group-append">
-                                <button class="btn btn-danger" id="reset" name="reset" type="submit">
+                                <button class="btn btn-primary" id="reset" name="reset" type="submit">
                                     <i class="fas fa-sync-alt fa-sm"></i>
                                 </button>
                             </div>
@@ -259,14 +259,14 @@ $kons = query("SELECT * FROM konsultasi ORDER BY id_konsultasi DESC LIMIT $hal_a
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-danger "><?=$_SESSION['username']?></span>
+                                <span class="mr-2 d-none d-lg-inline text-primary "><?=$_SESSION['username']?></span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
 
-                                <a class="dropdown-item text-danger font-weight-bold" href="#" data-toggle="modal"
+                                <a class="dropdown-item text-primary font-weight-bold" href="#" data-toggle="modal"
                                     data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
                                     Keluar
@@ -297,7 +297,7 @@ $kons = query("SELECT * FROM konsultasi ORDER BY id_konsultasi DESC LIMIT $hal_a
                                 <!-- Cetak Laporan -->
 
                                 <a href="../kcetak.php"
-                                    class="btn btn-light text-danger border border-danger rounded-pill font-weight-bold mb-1 btn-sm"
+                                    class="btn btn-light text-primary border border-primary rounded-pill font-weight-bold mb-1 btn-sm"
                                     style="margin-left: 300px;">Cetak <i class="fa fa-print"></i></a>
 
                             </div>
@@ -311,7 +311,7 @@ $kons = query("SELECT * FROM konsultasi ORDER BY id_konsultasi DESC LIMIT $hal_a
                             <div class="col">
 
                                 <div class="card highlight ">
-                                    <div class="card-header bg-danger text-white font-weight-bold ">
+                                    <div class="card-header bg-primary text-white font-weight-bold ">
                                         Tabel Data Riwayat Diagnosa
                                     </div>
                                     <div class="card-body ">
@@ -385,7 +385,7 @@ $kons = query("SELECT * FROM konsultasi ORDER BY id_konsultasi DESC LIMIT $hal_a
                                                         <?php if ($i == $hal): ?>
 
                                                         <li class="page-item"><a
-                                                                class="page-link text-danger font-weight-bold"
+                                                                class="page-link text-primary font-weight-bold"
                                                                 href="?hal=<?= $i; ?>"><?= $i;  ?></a></li>
 
                                                         <?php else: ?>

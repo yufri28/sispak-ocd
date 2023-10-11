@@ -137,7 +137,7 @@ if (isset($_POST["diagnosis"])) {
     <section>
         <div class="jumbotron jumbotron-fluid pb-4 mb-0 pt-4 bg-light">
             <div class="container">
-                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-danger">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-primary">
                     <ul class="navbar-nav ml-auto mr-auto">
                         <a href="./index.php"
                             onclick="if (!confirm('Anda yakin ingin membatalkan proses Diagnosis?')) { event.preventDefault(); }"
@@ -157,12 +157,12 @@ if (isset($_POST["diagnosis"])) {
                                     src="admin/img/undraw_profile.svg" style="width: 30px;"> <b class="lead"
                                     style="color: white;"><?=$_SESSION['username'];?></b></a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item text-dark font-weight-bold page-sc" href="#riwayat"><i
+                                <!-- <a class="dropdown-item text-dark font-weight-bold page-sc" href="#riwayat"><i
                                         class="fa fa-history"></i> Riwayat Konsultasi</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item text-dark font-weight-bold" data-toggle="modal"
                                     data-target="#ubah_data" href="#ubah_data"><i class="fa fa-user-edit"></i> Kelola
-                                    Akun</a>
+                                    Akun</a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item text-danger font-weight-bold shadow" href="logout.php"
                                     onclick="return confirm('Anda yakin ingin keluar?')"><i
@@ -223,17 +223,17 @@ if (isset($_POST["diagnosis"])) {
 
                                 <label class="font-weight-bold pt-2">Pilih Tingkat Keyakinan</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="ptk" id="op1" value="selalu"
-                                        required="">
+                                    <input class="form-check-input" type="radio" name="ptk" id="op1"
+                                        value="sangat yakin" required="">
                                     <label class="form-check-label" for="op1">
-                                        Selalu
+                                        Sangat yakin
                                     </label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="ptk" id="op2" value="sering">
+                                    <input class="form-check-input" type="radio" name="ptk" id="op2" value="yakin">
                                     <label class="form-check-label" for="op2">
-                                        Sering
+                                        Yakin
                                     </label>
                                 </div>
 
@@ -269,7 +269,7 @@ if (isset($_POST["diagnosis"])) {
                                 <br>
 
                                 <div class="d-flex justify-content-center">
-                                    <button type="submit" class="btn btn-danger rounded-pill font-weight-bold"
+                                    <button type="submit" class="btn btn-primary rounded-pill font-weight-bold"
                                         style="align:center;" name="tambah">Tambah Gejala</button>
                                 </div>
                             </form>
@@ -303,7 +303,7 @@ if (isset($_POST["diagnosis"])) {
 
                                     <tr class=" text-capitalize">
                                         <td class=" text-center"><?= $i++;?></td>
-                                        <td class="font-weight-bold text-danger"><?= $dd['dgej'];?></td>
+                                        <td class="font-weight-bold text-primary"><?= $dd['dgej'];?></td>
                                         <td class="text-center"><?= $dd['dfrasa'];?></td>
                                         <td class="text-center"><a href="?id=<?= $dd['id_d'];?>"
                                                 class="btn btn-warning btn-sm rounded-circle"><i
@@ -317,8 +317,8 @@ if (isset($_POST["diagnosis"])) {
                                 <?php if(isset($ready)): ?>
 
                                 <div class="d-flex justify-content-center">
-                                    <button type="submit" class="btn btn-danger rounded-pill font-weight-bold" style=""
-                                        name="diagnosis">Mulai Diagnosa</button>
+                                    <button type="submit" class="btn btn-secondary rounded-pill font-weight-bold"
+                                        style="" name="diagnosis">Mulai Diagnosa</button>
                                 </div>
 
                                 <?php endif; ?>

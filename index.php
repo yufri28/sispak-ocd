@@ -171,7 +171,7 @@ if (isset($ready)) {
     <!-- 
 <-- mulai nav -->
     <section>
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-danger">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-primary">
             <?php if(isset($ready)) : ?>
             <ul class="navbar-nav ml-auto mr-auto">
                 <a href="./index.php" class="nav-link text-white">
@@ -191,11 +191,11 @@ if (isset($ready)) {
                             src="admin/img/undraw_profile.svg" style="width: 30px;"> <b class="lead"
                             style="color: white;"><?=$_SESSION['username'];?></b></a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item text-dark font-weight-bold page-sc" href="#riwayat"><i
+                        <!-- <a class="dropdown-item text-dark font-weight-bold page-sc" href="#riwayat"><i
                                 class="fa fa-history"></i> Riwayat Konsultasi</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item text-dark font-weight-bold" data-toggle="modal" data-target="#ubah_data"
-                            href="#ubah_data"><i class="fa fa-user-edit"></i> Kelola Akun</a>
+                            href="#ubah_data"><i class="fa fa-user-edit"></i> Kelola Akun</a> -->
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item text-danger font-weight-bold shadow" href="logout.php"
                             onclick="return confirm('Anda yakin ingin keluar?')"><i class="fas fa-sign-out-alt"></i>
@@ -216,12 +216,12 @@ if (isset($ready)) {
 
             <div class="col-lg-4" id="flogin" style="text-align : center; margin-left:350px; margin-top: 100px;">
                 <div class="card mt-4">
-                    <div class="card-header bg-danger font-weight-bold text-light">
+                    <div class="card-header bg-primary font-weight-bold text-light">
                         <i class="fas fa-house-user fa-lg"></i> L O G I N
 
                         <?php  if(isset($error)) : ?>
                         <hr>
-                        <p class="text-white text-center text-monospace bg-danger mb-1 shadow"><i
+                        <p class="text-white text-center text-monospace bg-primary mb-1 shadow"><i
                                 class="fas fa-exclamation-triangle"></i> username/password salah!</p>
                         <?php endif; ?>
 
@@ -241,7 +241,7 @@ if (isset($ready)) {
 
                             <div class="row pt-2">
                                 <div class="col">
-                                    <button type="submit" class="btn btn-danger" name="btnlog">Masuk</button>
+                                    <button type="submit" class="btn btn-primary" name="btnlog">Masuk</button>
                                 </div>
 
                                 <div class="col pt-2">
@@ -266,7 +266,7 @@ if (isset($ready)) {
         <div class="container">
             <h1 class="text-center pb-4">Daftar</h1>
             <div class="card mt-2">
-                <div class="card-header bg-danger text-white font-weight-bold lead">
+                <div class="card-header bg-primary text-white font-weight-bold lead">
                     Form Pendaftaran
                 </div>
                 <div class="card-body">
@@ -308,7 +308,7 @@ if (isset($ready)) {
                         <input type="text" name="clevel" value="client" style="display: none;">
 
                         <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-danger mt-3" name="btndaftar">Daftar</button>
+                            <button type="submit" class="btn btn-primary mt-3" name="btndaftar">Daftar</button>
                         </div>
 
                     </form>
@@ -361,7 +361,7 @@ if (isset($ready)) {
                     <?php if(isset($ready)) : ?>
                     <form action="igejala.php" method="post" class="pb-4">
                         <button type="submit" name="btndiag"
-                            class="diagnosis btn btn-danger text-wahite font-weight-bold"
+                            class="diagnosis btn btn-primary text-wahite font-weight-bold"
                             style="border-radius: 50px">Diagnosis</button>
                     </form>
                     <?php endif; ?>
@@ -420,7 +420,7 @@ if (isset($ready)) {
                                 <tr>
                                     <td class="text-center"><?=$no++;?></td>
                                     <td class="text-center font-weight-bold"><?=$ko['id_konsultasi'];?></td>
-                                    <td class="font-weight-bold text-danger text-capitalize text-center">
+                                    <td class="font-weight-bold text-primary text-capitalize text-center">
                                         <?=$ko['kpenyakit'];?></td>
                                     <td class="font-weight-bold text-capitalize text-center"><?=$ko['persentase'];?>%
                                     </td>
@@ -428,9 +428,9 @@ if (isset($ready)) {
                                     <?php
 
                                     $idpenyakit=$ko["id_kpenyakit"];
-                                    $dsol = mysqli_query($conn,"SELECT solusi FROM tpenyakit WHERE id_penyakit ='$idpenyakit'");  
+                                    $dsol = mysqli_query($conn,"SELECT s.des_solusi FROM solusi s JOIN tpenyakit tp ON tp.id_penyakit=s.id_spenyakit WHERE tp.id_penyakit ='$idpenyakit'");  
                                     $solu = mysqli_fetch_assoc($dsol);
-                                    $solusi = $solu["solusi"];
+                                    $solusi = $solu["des_solusi"];
 
                                     ?>
 
@@ -528,7 +528,7 @@ if (isset($ready)) {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-dismiss="modal">Batal</button>
-                    <button type="submit" name="btnubah" class="btn btn-danger"
+                    <button type="submit" name="btnubah" class="btn btn-primary"
                         onclick="return confirm('Anda Yakin Ingin Mengubah Data Akun?');">Ubah</button>
                 </div>
                 </form>

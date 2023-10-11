@@ -4,9 +4,13 @@ session_start();
 if (!isset($_SESSION["level2"])) {
   header("Location: ../index.php");
   exit;
+
+
 }
 
+
 require '../functions.php';
+
 
 if (isset($_POST["reset"])) {
 
@@ -15,6 +19,8 @@ if (isset($_POST["reset"])) {
     header("Location:?hal=1");
 
 }
+
+
 
 $jdataS = count(query("SELECT * FROM solusi"));
 
@@ -26,6 +32,7 @@ if (isset($_SESSION["keywords"])) {
 
     $keyword = $_SESSION["keywords"];
     
+
     $jdata = count(query("SELECT * FROM solusi WHERE 
                           id_solusi LIKE '%$keyword%' OR
                           des_solusi LIKE '%$keyword%' OR
@@ -37,13 +44,16 @@ $jdata = count(query("SELECT * FROM solusi"));
 
 }
 
+
 $jhal = ceil($jdata / $batas);
+
 
 // ternari (halaman aktif)
 
 $hal = (isset($_GET["hal"]) ) ? $_GET["hal"] : 1;
 
 $hal_awal = ($batas * $hal) - $batas;  
+
 
 //limit pagination
 
@@ -77,7 +87,7 @@ $solusi = query("SELECT * FROM solusi ORDER BY id_solusi DESC LIMIT $hal_awal, $
 $penyakit = query("SELECT * FROM tpenyakit");
 
 
-//tambah penanganan
+//tabah penanganan
 
 if (isset($_POST["btnsimpan"]) ) {
 
@@ -86,14 +96,14 @@ if (isset($_POST["btnsimpan"]) ) {
 
     echo "
     <script>
-    alert('Data solusi berhasil disimpan!');
+    alert('Simpan Data Solusi Berhasil!');
     document.location = 'penanganan.php';
     </script>
     ";
   }
   else{
     echo "<script>
-    alert('Data solusi gagal disimpan!');
+    alert('Simpan Data Solusi Gagal!');
     document.location = 'penanganan.php';
     </script>
     ";
@@ -112,7 +122,7 @@ if (isset($_POST["btnubah"])) {
 
     echo "
     <script>
-    alert('Data solusi berhasil diubah!');    
+    alert('Ubah Data Solusi Berhasil!');    
     document.location = 'penanganan.php';
     </script>
     ";
@@ -121,7 +131,7 @@ if (isset($_POST["btnubah"])) {
   } else{
 
     echo "<script>
-    alert('Data solusi gagal diubah!');
+    alert('Ubah Data Solusi Gagal!');
     document.location = 'penanganan.php';
     </script>
     ";
@@ -151,7 +161,16 @@ $id_solusi = $huruf. sprintf("%02s",$urutan);
 
 // akhir id penanganan
 
+
+
+
+
 ?>
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -164,7 +183,7 @@ $id_solusi = $huruf. sprintf("%02s",$urutan);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>OCD Test | Admin</title>
+    <title>Sistem Pakar - Admin</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -177,6 +196,9 @@ $id_solusi = $huruf. sprintf("%02s",$urutan);
 
     <link rel="stylesheet" href="css/gejala.css">
 
+
+
+
 </head>
 
 <body id="page-top">
@@ -186,6 +208,7 @@ $id_solusi = $huruf. sprintf("%02s",$urutan);
     <div id="wrapper">
 
         <!-- Sidebar -->
+
         <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <h3 class="text-center">DASHBOARD ADMIN</h3>
@@ -241,7 +264,7 @@ $id_solusi = $huruf. sprintf("%02s",$urutan);
 
 
             <!-- Nav Item - Penanganan -->
-            <li class="nav-item bg-gradient-danger">
+            <li class="nav-item bg-gradient-primary">
                 <a class="nav-link" href="penanganan.php">
                     <i class="fas fa-hand-holding-medical"></i>
                     <span>Data Solusi</span></a>
@@ -271,6 +294,307 @@ $id_solusi = $huruf. sprintf("%02s",$urutan);
         </ul>
         <!-- End of Sidebar -->
 
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form method="post"
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Cari..."
+                                aria-label="Search" aria-describedby="basic-addon2" id="keywords" name="keywords"
+                                autocomplete="off" autofocus="">
+
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" id="reset" name="reset" type="submit">
+                                    <i class="fas fa-sync-alt fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form method="post" class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small keyword"
+                                            id="keywords2" placeholder="Cari.." aria-label="Search"
+                                            aria-describedby="basic-addon2" name="keywords2">
+
+                                        <div class="input-group-append">
+                                            <button name="reset" class="btn btn-primary" type="submit">
+                                                <i class="fas fa-sync-alt fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span
+                                    class="mr-2 d-none d-lg-inline text-dark font-weight-bold "><?=$_SESSION['username']?></span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+
+                                <a class="dropdown-item text-danger font-weight-bold" href="#" data-toggle="modal"
+                                    data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+
+                <!-- Begin Page Content -->
+                <section>
+
+                    <div class="container-fluid ">
+
+
+
+                        <div class="row" id="row-info-user">
+
+                            <div class="col">
+
+                                <!-- Page Heading -->
+                                <h5 class="h5 text-gray-800 pt-1"><i class="fa fa-hand-holding-medical"></i>
+                                    (<?= $jdataS;?>) Solusi</h5>
+
+                            </div>
+
+                            <div class="col" id="btn_reg">
+
+
+
+                                <!-- register admin -->
+
+                                <button
+                                    class="btn btn-light text-dark mb-1 font-weight-bold btn-sm border border-dark rounded-pill"
+                                    style="margin-left: 150px;" data-toggle="modal" data-target="#exampleModal"
+                                    type="button" id="btn-admin">Solusi <i class="fa fa-file-medical"></i></button>
+
+                                <a href="../scetak.php" class="btn btn-light text-dark border border-dark 
+                    rounded-pill font-weight-bold mb-1 btn-sm">Cetak <i class="fa fa-print"></i></a>
+
+
+                            </div>
+
+                        </div>
+                        <hr>
+
+                        <!-- tabel data user -->
+
+                        <div class="row">
+                            <div class="col">
+
+                                <div class="card highlight ">
+                                    <div class="card-header bg-primary text-light font-weight-bold ">
+                                        Tabel Data Solusi
+                                    </div>
+                                    <div class="card-body ">
+                                        <div class="table-responsive">
+                                            <div id="cari">
+
+                                                <?php if(isset($_SESSION["keywords"])): ?>
+                                                <?php if ($keyword != "" ): ?>
+
+                                                <p id="jhp">Terdapat <?= $jdata;?> hasil pencarian untuk <i
+                                                        class="text-info"><?= $keyword;?></i></p>
+
+                                                <?php endif; ?>
+                                                <?php endif; ?>
+
+                                                <table class="table table-hover table-bordered table-striped"
+                                                    style="color: black;">
+                                                    <tr class="text-center">
+                                                        <th>No.</th>
+                                                        <th>ID</th>
+                                                        <th>Solusi</th>
+                                                        <th>Penyakit</th>
+                                                        <th>Aksi</th>
+
+                                                    </tr>
+
+                                                    <?php 
+                            $nomor = $hal_awal+1;
+
+                            foreach ($solusi as $sol): 
+                              ?>
+
+                                                    <tr>
+                                                        <td class="text-center col-md-1"><?=$nomor++;?></td>
+                                                        <td class="text-center"><?=$sol['id_solusi'];?></td>
+                                                        <td class="text-left col-md-5"><?=$sol['des_solusi'];?></td>
+                                                        <td class="font-weight-bold text-capitalize">
+                                                            <?=$sol['n_spenyakit'];?></td>
+                                                        <td class="text-center"><a id="ubahs"
+                                                                class="btn btn-primary btn-sm" data-toggle="modal"
+                                                                data-target="#ubah_data<?=$sol['id_solusi'];?>"
+                                                                data-id="<?=$sol['id_solusi'];?>"
+                                                                data-dessolusi="<?=$sol['des_solusi'];?>"
+                                                                data-spenyakit="<?= $sol['n_spenyakit'];?>"><i
+                                                                    class="fa fa-edit"></i> edit</a></td>
+                                                    </tr>
+
+
+                                                    <?php endforeach; ?>
+
+
+                                                </table>
+
+                                                <!-- pagination -->
+                                                <?php if ($jdata > $batas): ?>
+
+                                                <nav>
+                                                    <ul class="pagination">
+
+                                                        <?php if ($hal > 1): ?>
+
+                                                        <li class="page-item"><a class="page-link font-weight-bold"
+                                                                href="?hal=1">First</a></li>
+
+                                                        <li class="page-item"><a class="page-link font-weight-bold"
+                                                                href="?hal=<?= $hal-1 ?>"><i
+                                                                    class="fa fa-caret-left"></i></a></li>
+
+                                                        <?php endif ?>
+
+                                                        <?php for($i=1; $i <= $send_num; $i++) : ?>
+
+                                                        <?php if ($i == $hal): ?>
+
+                                                        <li class="page-item"><a
+                                                                class="page-link text-danger font-weight-bold"
+                                                                href="?hal=<?= $i; ?>"><?= $i;  ?></a></li>
+
+                                                        <?php else: ?>
+
+                                                        <li class="page-item"><a class="page-link font-weight-bold"
+                                                                href="?hal=<?= $i; ?>"><?= $i;  ?></a></li>
+
+                                                        <?php endif; ?>
+
+
+                                                        <?php endfor; ?>
+
+                                                        <?php if ($hal < $jhal): ?>
+
+                                                        <li class="page-item"><a class="page-link font-weight-bold"
+                                                                href="?hal=<?= $hal + 1 ?>"><i
+                                                                    class="fa fa-caret-right"></i></a></li>
+
+                                                        <li class="page-item"><a class="page-link font-weight-bold"
+                                                                href="?hal=<?= $jhal;?>">Last</a></li>
+
+                                                        <?php endif ?>
+
+                                                    </ul>
+                                                </nav>
+
+                                                <?php endif; ?>
+
+                                            </div>
+
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+
+
+                        <!-- /.container-fluid -->
+
+
+                    </div>
+                    <!-- End of Main Content -->
+
+                    <!-- Footer -->
+
+                    <footer class="sticky-footer bg-white">
+                        <div class="container my-auto">
+                            <div class="copyright text-center my-auto">
+                                <p>&copy; Copyrights Sistem Pakar - OCD. All rights reserved.</p>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">INFO</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Anda yakin ingin keluar?</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                        <a class="btn btn-danger" href="../logout.php">Keluar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <!-- Modal tambah penanganan -->
 
@@ -295,7 +619,7 @@ $id_solusi = $huruf. sprintf("%02s",$urutan);
 
 
                             <div class="form-group">
-                                <label for="spenyakit">Gangguan :</label>
+                                <label for="spenyakit">Penyakit :</label>
                                 <select class="form-control text-capitalize font-weight-bold" name="spenyakit"
                                     id="spenyakit" required="">
 
@@ -321,7 +645,7 @@ $id_solusi = $huruf. sprintf("%02s",$urutan);
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-dismiss="modal">Batal</button>
-                        <button type="submit" name="btnsimpan" class="btn btn-danger">Simpan</button>
+                        <button type="submit" name="btnsimpan" class="btn btn-success">Simpan</button>
                     </div>
                     </form>
                 </div>
@@ -330,8 +654,9 @@ $id_solusi = $huruf. sprintf("%02s",$urutan);
 
 
         <!-- Modal Ubah Data penanganan -->
-
-        <div class="modal fade" id="ubah_data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <?php foreach ($solusi as $key => $sol):?>
+        <div class="modal fade" id="ubah_data<?=$sol['id_solusi'];?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -346,31 +671,35 @@ $id_solusi = $huruf. sprintf("%02s",$urutan);
 
                             <div class="form-group">
                                 <label for="uids" class="col-form-label">ID :</label>
-                                <input class="form-control" type="text" id="uids" name="uids" readonly>
+                                <input class="form-control" value="<?=$sol['id_solusi'];?>" type="text" id="uids"
+                                    name="uids" readonly>
                             </div>
 
                             <div class="form-group">
-                                <label for="uspenyakit" class="col-form-label">Gangguan :</label>
+                                <label for="uspenyakit" class="col-form-label">Penyakit :</label>
                                 <input type="text" readonly="" class="form-control text-capitalize font-weight-bold"
-                                    name="uspenyakit" id="uspenyakit" required="">
+                                    name="uspenyakit" value="<?=$sol['n_spenyakit'];?>" id="uspenyakit" required="">
                             </div>
 
                             <div class="form-group">
                                 <label for="des_penanganan" class="col-form-label">Solusi :</label>
                                 <textarea class="form-control pb-5" name="udes_penanganan" id="udes_penanganan"
-                                    required=""></textarea>
+                                    required=""><?=$sol['des_solusi'];?></textarea>
                             </div>
 
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-dismiss="modal">Batal</button>
-                        <button type="submit" name="btnubah" class="btn btn-danger"
+                        <button type="submit" name="btnubah" class="btn btn-primary"
                             onclick="return confirm('Anda Yakin Ingin Mengubah Data Solusi?');">Ubah</button>
                     </div>
                     </form>
                 </div>
             </div>
         </div>
+        <?php endforeach;?>
+
+
 
         <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery.min.js"></script>

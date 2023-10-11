@@ -263,7 +263,7 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
             <!-- Nav Item - Aturan -->
-            <li class="nav-item bg-gradient-danger">
+            <li class="nav-item bg-gradient-primary">
                 <a class="nav-link" href="aturan.php">
                     <i class="fas fa-cog"></i>
                     <span>Data Aturan</span></a>
@@ -309,7 +309,7 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
                                 autocomplete="off" autofocus="">
 
                             <div class="input-group-append">
-                                <button class="btn btn-danger" id="reset" name="reset" type="submit">
+                                <button class="btn btn-primary" id="reset" name="reset" type="submit">
                                     <i class="fas fa-sync-alt fa-sm"></i>
                                 </button>
                             </div>
@@ -350,14 +350,14 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-danger "><?=$_SESSION['username']?></span>
+                                <span class="mr-2 d-none d-lg-inline text-primary "><?=$_SESSION['username']?></span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
 
-                                <a class="dropdown-item text-danger font-weight-bold" href="#" data-toggle="modal"
+                                <a class="dropdown-item text-primary font-weight-bold" href="#" data-toggle="modal"
                                     data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
                                     Keluar
@@ -395,13 +395,13 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
                                 <!-- register admin -->
 
                                 <button
-                                    class="btn btn-light text-danger mb-1 font-weight-bold btn-sm border border-danger rounded-pill"
+                                    class="btn btn-light text-primary mb-1 font-weight-bold btn-sm border border-primary rounded-pill"
                                     style="margin-left:170px;" data-toggle="modal" data-target="#exampleModal"
                                     type="button" id="btn-admin">Tambah Aturan <i
                                         class="fa fa-file-medical"></i></button>
 
                                 <a href="../acetak.php"
-                                    class="btn btn-light text-danger border border-danger rounded-pill font-weight-bold mb-1 btn-sm">Cetak
+                                    class="btn btn-light text-primary border border-primary rounded-pill font-weight-bold mb-1 btn-sm">Cetak
                                     <i class="fa fa-print"></i></a>
 
 
@@ -416,7 +416,7 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
                             <div class="col">
 
                                 <div class="card highlight ">
-                                    <div class="card-header text-white bg-danger font-weight-bold ">
+                                    <div class="card-header text-white bg-primary font-weight-bold ">
                                         Tabel Data Aturan
                                     </div>
                                     <div class="card-body ">
@@ -456,7 +456,7 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
                                                         <td class="text-center"><?=$atr['id_cf'];?></td>
                                                         <td class="text-left text-capitalize"><?=$atr['agejala'];?></td>
                                                         <td
-                                                            class="font-weight-bold text-capitalize text-danger text-center">
+                                                            class="font-weight-bold text-capitalize text-primary text-center">
                                                             <?=$atr['apenyakit'];?></td>
                                                         <td class="text-capitalize text-center"><?=$atr['frasa'];?></td>
                                                         <td class="text-capitalize text-center"><?=$atr['bobotcf'];?>
@@ -502,7 +502,7 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
                                                         <?php if ($i == $hal): ?>
 
                                                         <li class="page-item"><a
-                                                                class="page-link text-danger font-weight-bold"
+                                                                class="page-link text-primary font-weight-bold"
                                                                 href="?hal=<?= $i; ?>"><?= $i;  ?></a></li>
 
                                                         <?php else: ?>
@@ -666,8 +666,9 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
 
                                     <option class="font-italic" value="" hidden="" disabled="" selected="">----</option>
 
-                                    <option class="font-weight-bold text-dark" value="selalu">Sangat yakin (1)</option>
-                                    <option class="font-weight-bold text-dark" value="sering">Yakin (0.8)</option>
+                                    <option class="font-weight-bold text-dark" value="sangat yakin">Sangat yakin (1)
+                                    </option>
+                                    <option class="font-weight-bold text-dark" value="yakin">Yakin (0.8)</option>
                                     <option class="font-weight-bold text-dark" value="kadang">Kadang (0.6)</option>
                                     <option class="font-weight-bold text-dark" value="jarang">Jarang (0.4)</option>
                                     <option class="font-weight-bold text-dark" value="tidak tahu">Tidak tahu (0.2)
@@ -681,7 +682,7 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-dismiss="modal">Batal</button>
-                        <button type="submit" name="btnsimpan" class="btn btn-danger">Simpan</button>
+                        <button type="submit" name="btnsimpan" class="btn btn-primary">Simpan</button>
                     </div>
                     </form>
                 </div>
@@ -762,8 +763,9 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
 
                                     <option class="font-italic" value="" hidden="" disabled="" selected="">----</option>
 
-                                    <option class="font-weight-bold text-dark" value="selalu">Sangat yakin (1)</option>
-                                    <option class="font-weight-bold text-dark" value="sering">Yakin (0.8)</option>
+                                    <option class="font-weight-bold text-dark" value="sangat yakin">Sangat yakin (1)
+                                    </option>
+                                    <option class="font-weight-bold text-dark" value="yakin">Yakin (0.8)</option>
                                     <option class="font-weight-bold text-dark" value="kadang">Kadang (0.6)</option>
                                     <option class="font-weight-bold text-dark" value="jarang">Jarang (0.4)</option>
                                     <option class="font-weight-bold text-dark" value="tidak tahu">Tidak tahu (0.2)
@@ -777,7 +779,7 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-dismiss="modal">Batal</button>
-                        <button type="submit" name="btnubah" class="btn btn-danger"
+                        <button type="submit" name="btnubah" class="btn btn-primary"
                             onclick="return confirm('Anda Yakin Ingin Mengubah Data Aturan?');">Ubah</button>
                     </div>
                     </form>

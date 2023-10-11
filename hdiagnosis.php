@@ -86,9 +86,7 @@ $idk = $huruf. sprintf("%02s",$urutan);
 // akhir id Konsultasi
 if(isset($_GET['kode_penyakit'])){
     $data_solusi = mysqli_query($conn, 'SELECT * FROM solusi WHERE id_spenyakit="'.$_GET['kode_penyakit'].'"');
-    $dSolusi = mysqli_fetch_assoc($data_solusi);
-
-    
+    $dSolusi = mysqli_fetch_assoc($data_solusi);    
 }
 
 
@@ -111,7 +109,7 @@ if(isset($_GET['kode_penyakit'])){
     <section>
         <div class="jumbotron jumbotron-fluid pb-4 mb-0 pt-4 bg-light">
             <div class="container">
-                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-danger">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-primary">
                     <ul class="navbar-nav ml-auto mr-auto">
                         <a href="./index.php"
                             onclick="if (!confirm('Anda yakin ingin membatalkan proses Diagnosis?')) { event.preventDefault(); }"
@@ -250,7 +248,7 @@ if(isset($_GET['kode_penyakit'])){
                                     </table>
 
                                     <div class="card">
-                                        <div class="card-header bg-danger">
+                                        <div class="card-header bg-primary">
                                             <div class="card-title font-weight-bold pt-2 text-white">
                                                 <h5>Hasil Diagnosa Persentase Tertinggi</h5>
                                             </div>
@@ -262,7 +260,7 @@ if(isset($_GET['kode_penyakit'])){
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header bg-danger">
+                                        <div class="card-header bg-primary">
                                             <div class="card-title font-weight-bold pt-2 text-white">
                                                 <h5>Solusi</h5>
                                             </div>
@@ -280,7 +278,7 @@ if(isset($_GET['kode_penyakit'])){
 
                                 <div class="row mt-4">
                                     <div class="col-lg-12 d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-danger rounded-pill font-weight-bold"
+                                        <button type="submit" class="btn btn-primary rounded-pill font-weight-bold"
                                             name="cetakh">Cetak <i class="fa fa-print"></i></button>
                                         <!-- <a href="claporan.php" class="btn btn-success rounded-pill font-weight-bold" name="cetakh">Laporan <i class="fa fa-print"></i></a> -->
                                     </div>

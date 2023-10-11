@@ -245,7 +245,7 @@ $id_user = $huruf. sprintf("%02s",$urutan);
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - User -->
-            <li class="nav-item bg-gradient-danger">
+            <li class="nav-item bg-gradient-primary">
                 <a class="nav-link" href="users.php">
                     <i class="fas fa-users"></i>
                     <span>Data User</span></a>
@@ -332,7 +332,7 @@ $id_user = $huruf. sprintf("%02s",$urutan);
                                 autocomplete="off" autofocus="">
 
                             <div class="input-group-append">
-                                <button class="btn btn-danger" id="reset" name="reset" type="submit">
+                                <button class="btn btn-primary" id="reset" name="reset" type="submit">
                                     <i class="fas fa-sync-alt fa-sm"></i>
                                 </button>
                             </div>
@@ -372,14 +372,14 @@ $id_user = $huruf. sprintf("%02s",$urutan);
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-danger "><?=$_SESSION['username']?></span>
+                                <span class="mr-2 d-none d-lg-inline text-primary "><?=$_SESSION['username']?></span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
 
-                                <a class="dropdown-item text-danger font-weight-bold" href="#" data-toggle="modal"
+                                <a class="dropdown-item text-primary font-weight-bold" href="#" data-toggle="modal"
                                     data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
                                     Keluar
@@ -419,13 +419,13 @@ $id_user = $huruf. sprintf("%02s",$urutan);
                                 <!-- register admin -->
 
                                 <button
-                                    class="btn btn-light text-danger mb-1 font-weight-bold btn-sm border border-danger rounded-pill"
+                                    class="btn btn-light text-primary mb-1 font-weight-bold btn-sm border border-primary rounded-pill"
                                     style="margin-left: 120px;" data-toggle="modal" data-target="#exampleModal"
                                     type="button" id="btn-admin">Registrasi Admin <i
                                         class="fa fa-user-plus"></i></button>
 
                                 <button
-                                    class="btn btn-light text-danger border border-danger rounded-pill font-weight-bold mb-1 btn-sm"
+                                    class="btn btn-light text-primary border border-primary rounded-pill font-weight-bold mb-1 btn-sm"
                                     data-toggle="modal" data-target="#ubah_data" type="button" id="btn-admin">Edit Akun
                                     <i class="fa fa-user-edit"></i></button>
 
@@ -440,7 +440,7 @@ $id_user = $huruf. sprintf("%02s",$urutan);
                             <div class="col">
 
                                 <div class="card highlight ">
-                                    <div class="card-header bg-danger text-white font-weight-bold ">
+                                    <div class="card-header bg-primary text-white font-weight-bold ">
                                         Tabel Data User
                                     </div>
                                     <div class="card-body ">
@@ -515,7 +515,7 @@ $id_user = $huruf. sprintf("%02s",$urutan);
                                                         <?php if ($i == $hal): ?>
 
                                                         <li class="page-item"><a
-                                                                class="page-link text-danger font-weight-bold"
+                                                                class="page-link text-primary font-weight-bold"
                                                                 href="?hal=<?= $i; ?>"><?= $i;  ?></a></li>
 
                                                         <?php else: ?>
@@ -658,7 +658,7 @@ $id_user = $huruf. sprintf("%02s",$urutan);
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-dismiss="modal">Batal</button>
-                        <button type="submit" name="btndaftar" class="btn btn-danger">Daftar</button>
+                        <button type="submit" name="btndaftar" class="btn btn-primary">Daftar</button>
                     </div>
                     </form>
                 </div>
@@ -717,7 +717,7 @@ $id_user = $huruf. sprintf("%02s",$urutan);
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-dismiss="modal">Batal</button>
-                        <button type="submit" name="btnubah" class="btn btn-danger"
+                        <button type="submit" name="btnubah" class="btn btn-primary"
                             onclick="return confirm('Anda Yakin Ingin Mengubah Data Akun?');">Ubah</button>
                     </div>
                     </form>

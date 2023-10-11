@@ -238,7 +238,6 @@ global $conn;
 
 $idP = htmlspecialchars($data["idP"]);
 $nP = htmlspecialchars(strtolower(stripslashes($data["npenyakit"])));
-$solusi = htmlspecialchars(strtolower(stripslashes($data["tsolusi"])));
 
 
 	//cek nama gejala sudah ada atau belum
@@ -259,7 +258,7 @@ $solusi = htmlspecialchars(strtolower(stripslashes($data["tsolusi"])));
 //query insert data
 
 	$query = "INSERT INTO tpenyakit 
-	VALUES ('$idP','$nP', '$solusi')";
+	VALUES ('$idP','$nP')";
 
 
 mysqli_query($conn,$query);
@@ -287,7 +286,6 @@ global $conn;
 
 $idP = htmlspecialchars($data["uidP"]);
 $nP = htmlspecialchars(strtolower(stripslashes($data["unpenyakit"])));
-$solusi = htmlspecialchars(strtolower(stripslashes($data["solusi"])));
 
 //cek gangguan sudah ada atau belum
 
@@ -305,7 +303,7 @@ $solusi = htmlspecialchars(strtolower(stripslashes($data["solusi"])));
 	}
 
 $query = "UPDATE tpenyakit SET					
-			n_penyakit='$nP',solusi='$solusi'
+			n_penyakit='$nP'
 			WHERE id_penyakit = '$idP'";
 
 
@@ -421,12 +419,12 @@ $bkey = htmlspecialchars(strtolower(stripslashes($data["bkey"])));
 
 switch ($bkey) {
 
-	case 'selalu':
+	case 'sangat yakin':
 
 	$bobot = 1;
 	break;
 
-	case 'sering':
+	case 'yakin':
 
 	$bobot = 0.8;
 	break;
@@ -533,12 +531,12 @@ $bkey = htmlspecialchars(strtolower(stripslashes($data["ubkeyy"])));
 
 switch ($bkey) {
 
-	case 'selalu':
+	case 'sangat yakin':
 
 	$bobot = 1;
 	break;
 
-	case 'sering':
+	case 'yakin':
 
 	$bobot = 0.8;
 	break;
@@ -658,12 +656,12 @@ $ptk = htmlspecialchars(strtolower(stripslashes($data["ptk"])));
 
 switch ($ptk) {
 	
-	case 'selalu':
+	case 'sangat yakin':
 
 	$bobot = 1;
 	break;
 
-	case 'sering':
+	case 'yakin':
 
 	$bobot = 0.8;
 	break;

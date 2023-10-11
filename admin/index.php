@@ -67,7 +67,7 @@ $adata = count(query("SELECT * FROM taturancf"));
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item bg-gradient-danger">
+            <li class="nav-item bg-gradient-primary">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -159,7 +159,8 @@ $adata = count(query("SELECT * FROM taturancf"));
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <h5 class="small font-weight-bold lead text-danger" style="margin-top: 10px;">SISTEM PAKAR DIAGNOSIS
+                    <h5 class="small font-weight-bold lead text-primary" style="margin-top: 10px;">SISTEM PAKAR
+                        DIAGNOSIS
                         GANGGUAN OCD</h5>
 
                     <!-- Topbar Navbar -->
@@ -172,14 +173,14 @@ $adata = count(query("SELECT * FROM taturancf"));
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span
-                                    class="mr-2 d-none d-lg-inline text-danger "><?=strtolower($_SESSION['username']);?></span>
+                                    class="mr-2 d-none d-lg-inline text-primary "><?=strtolower($_SESSION['username']);?></span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
 
-                                <a class="dropdown-item text-danger font-weight-bold" href="#" data-toggle="modal"
+                                <a class="dropdown-item text-primary font-weight-bold" href="#" data-toggle="modal"
                                     data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Keluar
@@ -197,7 +198,7 @@ $adata = count(query("SELECT * FROM taturancf"));
 
                     <!-- Page Heading -->
                     <h5 class="h3 mb-4 text-gray-800">Selamat Datang <b
-                            class="text-danger"><?=strtolower($_SESSION['username']);?></b> !</h5>
+                            class="text-primary"><?=strtolower($_SESSION['username']);?></b> !</h5>
                     <hr>
                     <div class="row ml-6">
                         <div class="card">

@@ -250,7 +250,7 @@ $id_penyakit = $huruf. sprintf("%02s",$urutan);
 
 
             <!-- Nav Item - Penyakit -->
-            <li class="nav-item bg-gradient-danger">
+            <li class="nav-item bg-gradient-primary">
                 <a class="nav-link" href="Penyakit.php">
                     <i class="fas fa-viruses"></i>
                     <span>Data Gangguan</span></a>
@@ -326,7 +326,7 @@ $id_penyakit = $huruf. sprintf("%02s",$urutan);
                                 autocomplete="off" autofocus="">
 
                             <div class="input-group-append">
-                                <button class="btn btn-danger" id="reset" name="reset" type="submit">
+                                <button class="btn btn-primary" id="reset" name="reset" type="submit">
                                     <i class="fas fa-sync-alt fa-sm"></i>
                                 </button>
                             </div>
@@ -369,14 +369,14 @@ $id_penyakit = $huruf. sprintf("%02s",$urutan);
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-danger "><?=$_SESSION['username']?></span>
+                                <span class="mr-2 d-none d-lg-inline text-primary "><?=$_SESSION['username']?></span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
 
-                                <a class="dropdown-item text-danger font-weight-bold" href="#" data-toggle="modal"
+                                <a class="dropdown-item text-primary font-weight-bold" href="#" data-toggle="modal"
                                     data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
                                     Keluar
@@ -414,13 +414,13 @@ $id_penyakit = $huruf. sprintf("%02s",$urutan);
                                 <!-- register admin -->
 
                                 <button
-                                    class="btn btn-light text-danger mb-1 font-weight-bold btn-sm border border-danger rounded-pill"
+                                    class="btn btn-light text-primary mb-1 font-weight-bold btn-sm border border-primary rounded-pill"
                                     style="margin-left: 150px;" data-toggle="modal" data-target="#exampleModal"
                                     type="button" id="btn-admin">Tambah Gangguan <i
                                         class="fa fa-file-medical"></i></button>
 
                                 <a href="../pcetak.php"
-                                    class="btn btn-light text-danger border border-danger rounded-pill font-weight-bold mb-1 btn-sm">Cetak
+                                    class="btn btn-light text-primary border border-primary rounded-pill font-weight-bold mb-1 btn-sm">Cetak
                                     <i class="fa fa-print"></i></a>
 
                             </div>
@@ -433,7 +433,7 @@ $id_penyakit = $huruf. sprintf("%02s",$urutan);
                         <div class="row">
                             <div class="col">
                                 <div class="card highlight ">
-                                    <div class="card-header bg-danger text-white font-weight-bold">
+                                    <div class="card-header bg-primary text-white font-weight-bold">
                                         Tabel Data Gangguan
                                     </div>
                                     <div class="card-body ">
@@ -454,7 +454,6 @@ $id_penyakit = $huruf. sprintf("%02s",$urutan);
                                                         <th>No.</th>
                                                         <th>ID</th>
                                                         <th>Gangguan</th>
-                                                        <th>Solusi</th>
                                                         <th>Aksi</th>
 
                                                     </tr>
@@ -470,8 +469,6 @@ $id_penyakit = $huruf. sprintf("%02s",$urutan);
                                                         <td class="text-center"><?=$pen['id_penyakit'];?></td>
                                                         <td class="font-weight-bold text-capitalize">
                                                             <?=$pen['n_penyakit'];?></td>
-                                                        <td class="font-weight-bold text-capitalize">
-                                                            <?=$pen['solusi'];?></td>
                                                         <td class="text-center" style="white-space:nowrap;">
                                                             <a id="ubahp" class="btn btn-primary btn-sm"
                                                                 data-toggle="modal"
@@ -512,7 +509,7 @@ $id_penyakit = $huruf. sprintf("%02s",$urutan);
                                                         <?php if ($i == $hal): ?>
 
                                                         <li class="page-item"><a
-                                                                class="page-link text-danger font-weight-bold"
+                                                                class="page-link text-primary font-weight-bold"
                                                                 href="?hal=<?= $i; ?>"><?= $i;  ?></a></li>
 
                                                         <?php else: ?>
@@ -612,8 +609,8 @@ $id_penyakit = $huruf. sprintf("%02s",$urutan);
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <form method="post" class="font-weight-bold">
+                    <form method="post" class="font-weight-bold">
+                        <div class="modal-body">
 
                             <div class="form-group">
                                 <label for="idP" class="col-form-label">ID :</label>
@@ -625,17 +622,11 @@ $id_penyakit = $huruf. sprintf("%02s",$urutan);
                                 <label for="npenyakit" class="col-form-label">Gangguan :</label>
                                 <input type="text" class="form-control" name="npenyakit" id="npenyakit" required="">
                             </div>
-
-                            <div class="form-group">
-                                <label for="solusi" class="col-form-label">Solusi :</label>
-                                <textarea rows="5" cols="" class="form-control" name="tsolusi" required></textarea>
-                            </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-dismiss="modal">Batal</button>
-                        <button type="submit" name="btnsimpan" class="btn btn-danger">Simpan</button>
-                    </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-dismiss="modal">Batal</button>
+                            <button type="submit" name="btnsimpan" class="btn btn-primary">Simpan</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -661,7 +652,7 @@ $id_penyakit = $huruf. sprintf("%02s",$urutan);
                         </div>
                         <div class="modal-footer">
                             <a class="btn btn-primary" href="">Keluar</a>
-                            <button type="submit" class="btn btn-danger" name="btnhapusPe">Hapus</button>
+                            <button type="submit" class="btn btn-primary" name="btnhapusPe">Hapus</button>
                         </div>
                     </div>
                 </div>
@@ -682,9 +673,8 @@ $id_penyakit = $huruf. sprintf("%02s",$urutan);
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <form method="post" class="font-weight-bold">
-
+                    <form method="post" class="font-weight-bold">
+                        <div class="modal-body">
                             <div class="form-group">
                                 <label for="uidP" class="col-form-label">ID :</label>
                                 <input class="form-control" type="text" value="<?=$penya['id_penyakit']?>" name="uidP"
@@ -696,18 +686,12 @@ $id_penyakit = $huruf. sprintf("%02s",$urutan);
                                 <input type="text" class="form-control" value="<?=$penya['n_penyakit']?>"
                                     name="unpenyakit" required="">
                             </div>
-                            <div class="form-group">
-                                <label for="solusi" class="col-form-label">Solusi :</label>
-                                <textarea rows="5" cols="" class="form-control" name="solusi"
-                                    required><?=$penya['solusi']?></textarea>
-                            </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-dismiss="modal">Batal</button>
-                        <button type="submit" name="btnubah" class="btn btn-danger"
-                            onclick="return confirm('Anda Yakin Ingin Mengubah Data Gangguan?');">Ubah</button>
-                    </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-dismiss="modal">Batal</button>
+                            <button type="submit" name="btnubah" class="btn btn-primary"
+                                onclick="return confirm('Anda Yakin Ingin Mengubah Data Gangguan?');">Ubah</button>
+                        </div>
                     </form>
                 </div>
             </div>

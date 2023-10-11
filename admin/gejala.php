@@ -267,7 +267,7 @@ $id_gejala = $huruf. sprintf("%02s",$urutan);
 
 
             <!-- Nav Item - Gejala -->
-            <li class="nav-item bg-gradient-danger">
+            <li class="nav-item bg-gradient-primary">
                 <a class="nav-link" href="gejala.php">
                     <i class="fas fa-stethoscope"></i>
                     <span>Data Gejala</span></a>
@@ -332,7 +332,7 @@ $id_gejala = $huruf. sprintf("%02s",$urutan);
                                 autocomplete="off" autofocus="">
 
                             <div class="input-group-append">
-                                <button class="btn btn-danger" id="reset" name="reset" type="submit">
+                                <button class="btn btn-primary" id="reset" name="reset" type="submit">
                                     <i class="fas fa-sync-alt fa-sm"></i>
                                 </button>
                             </div>
@@ -375,14 +375,14 @@ $id_gejala = $huruf. sprintf("%02s",$urutan);
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-danger "><?=$_SESSION['username']?></span>
+                                <span class="mr-2 d-none d-lg-inline text-primary "><?=$_SESSION['username']?></span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
 
-                                <a class="dropdown-item text-danger font-weight-bold" href="#" data-toggle="modal"
+                                <a class="dropdown-item text-primary font-weight-bold" href="#" data-toggle="modal"
                                     data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2"></i>
                                     Keluar
@@ -416,13 +416,13 @@ $id_gejala = $huruf. sprintf("%02s",$urutan);
                             <div class="col" id="btn_reg">
 
                                 <button
-                                    class="btn btn-light text-danger mb-1 font-weight-bold btn-sm border border-danger rounded-pill"
+                                    class="btn btn-light text-primary mb-1 font-weight-bold btn-sm border border-primary rounded-pill"
                                     style="margin-left:170px;" data-toggle="modal" data-target="#exampleModal"
                                     type="button" id="btn-admin">Tambah Gejala <i
                                         class="fa fa-file-medical"></i></button>
 
                                 <a href="../gcetak.php"
-                                    class="btn btn-light text-danger border border-danger rounded-pill font-weight-bold mb-1 btn-sm">Cetak
+                                    class="btn btn-light text-primary border border-primary rounded-pill font-weight-bold mb-1 btn-sm">Cetak
                                     <i class="fa fa-print"></i></a>
 
 
@@ -437,7 +437,7 @@ $id_gejala = $huruf. sprintf("%02s",$urutan);
                             <div class="col">
 
                                 <div class="card highlight ">
-                                    <div class="card-header bg-danger text-white font-weight-bold ">
+                                    <div class="card-header bg-primary text-white font-weight-bold ">
                                         Tabel Data Gejala
                                     </div>
                                     <div class="card-body ">
@@ -518,7 +518,7 @@ $id_gejala = $huruf. sprintf("%02s",$urutan);
                                                         <?php if ($i == $hal): ?>
 
                                                         <li class="page-item"><a
-                                                                class="page-link text-danger font-weight-bold"
+                                                                class="page-link text-primary font-weight-bold"
                                                                 href="?hal=<?= $i; ?>"><?= $i;  ?></a></li>
 
                                                         <?php else: ?>
@@ -628,7 +628,7 @@ $id_gejala = $huruf. sprintf("%02s",$urutan);
                         </div>
                         <div class="modal-footer">
                             <a class="btn btn-primary" href="">Keluar</a>
-                            <button type="submit" class="btn btn-danger" name="btnhapus">Hapus</button>
+                            <button type="submit" class="btn btn-primary" name="btnhapus">Hapus</button>
                         </div>
                     </div>
                 </div>
@@ -668,7 +668,7 @@ $id_gejala = $huruf. sprintf("%02s",$urutan);
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-dismiss="modal">Batal</button>
-                        <button type="submit" name="btnsimpan" class="btn btn-danger">Simpan</button>
+                        <button type="submit" name="btnsimpan" class="btn btn-primary">Simpan</button>
                     </div>
                     </form>
                 </div>
@@ -712,7 +712,7 @@ $id_gejala = $huruf. sprintf("%02s",$urutan);
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-dark" data-dismiss="modal">Batal</button>
-                        <button type="submit" name="btnubah" class="btn btn-danger"
+                        <button type="submit" name="btnubah" class="btn btn-primary"
                             onclick="return confirm('Anda Yakin Ingin Mengubah Data Gejala?');">Ubah</button>
                     </div>
                     </form>
