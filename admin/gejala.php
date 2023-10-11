@@ -170,7 +170,7 @@ $urutan = (int)substr($id, 1,3);
 
 $urutan++;
 
-$huruf = 'G';
+$huruf = 'C';
 
 $id_gejala = $huruf. sprintf("%02s",$urutan);
 

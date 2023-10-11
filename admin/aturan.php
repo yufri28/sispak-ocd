@@ -463,7 +463,8 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
                                                         </td>
                                                         <td class="text-center"><a id="ubaha"
                                                                 class="btn btn-primary btn-sm" data-toggle="modal"
-                                                                data-target="#ubah_data" data-id="<?=$atr['id_cf'];?>"
+                                                                data-target="#ubah_data<?=$atr['id_cf'];?>"
+                                                                data-id="<?=$atr['id_cf'];?>"
                                                                 data-agejala="<?=$atr['agejala'];?>"
                                                                 data-apenyakit="<?= $atr['apenyakit'];?>"
                                                                 data-frasa="<?= $atr['frasa'];?>"><i
@@ -666,9 +667,9 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
 
                                     <option class="font-italic" value="" hidden="" disabled="" selected="">----</option>
 
-                                    <option class="font-weight-bold text-dark" value="sangat yakin">Sangat yakin (1)
+                                    <option class="font-weight-bold text-dark" value="selalu">Selalu (1)
                                     </option>
-                                    <option class="font-weight-bold text-dark" value="yakin">Yakin (0.8)</option>
+                                    <option class="font-weight-bold text-dark" value="sering">Sering (0.8)</option>
                                     <option class="font-weight-bold text-dark" value="kadang">Kadang (0.6)</option>
                                     <option class="font-weight-bold text-dark" value="jarang">Jarang (0.4)</option>
                                     <option class="font-weight-bold text-dark" value="tidak tahu">Tidak tahu (0.2)
@@ -690,8 +691,9 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
         </div>
 
         <!-- Modal Ubah Data Aturan -->
-
-        <div class="modal fade" id="ubah_data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <?php foreach ($aturan as $key => $value) :?>
+        <div class="modal fade" id="ubah_data<?=$value['id_cf'];?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -706,7 +708,8 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
 
                             <div class="form-group">
                                 <label for="uida" class="col-form-label">ID :</label>
-                                <input class="form-control" type="text" id="uida" name="uida" readonly>
+                                <input class="form-control" type="text" value="<?=$value['id_cf'];?>" id="uida"
+                                    name="uida" readonly>
                             </div>
 
 
@@ -729,7 +732,8 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
 
                                     <?php foreach($gejala as $gej): ?>
 
-                                    <option class="font-weight-bold text-dark" value="<?= $gej['n_gejala'];?>">
+                                    <option <?= $value['id_agejala'] == $gej['id_gejala'] ? 'selected':'';?>
+                                        class="font-weight-bold text-dark" value="<?= $gej['n_gejala'];?>">
                                         <?= $gej['id_gejala'];?> : <?= $gej['n_gejala'];?></option>
 
                                     <?php endforeach; ?>
@@ -747,7 +751,8 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
 
                                     <?php foreach($penyakit as $pen): ?>
 
-                                    <option class="font-weight-bold text-dark" value="<?= $pen["n_penyakit"];?>">
+                                    <option <?= $value['id_apenyakit'] == $pen['id_penyakit'] ? 'selected':'';?>
+                                        class="font-weight-bold text-dark" value="<?= $pen["n_penyakit"];?>">
                                         <?= $pen["id_penyakit"];?> : <?= $pen["n_penyakit"];?></option>
 
                                     <?php endforeach; ?>
@@ -763,14 +768,25 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
 
                                     <option class="font-italic" value="" hidden="" disabled="" selected="">----</option>
 
-                                    <option class="font-weight-bold text-dark" value="sangat yakin">Sangat yakin (1)
+                                    <option class="font-weight-bold text-dark"
+                                        <?= $value["frasa"] == 'selalu'?'selected':'';?> value="selalu">Selalu (1)
                                     </option>
-                                    <option class="font-weight-bold text-dark" value="yakin">Yakin (0.8)</option>
-                                    <option class="font-weight-bold text-dark" value="kadang">Kadang (0.6)</option>
-                                    <option class="font-weight-bold text-dark" value="jarang">Jarang (0.4)</option>
-                                    <option class="font-weight-bold text-dark" value="tidak tahu">Tidak tahu (0.2)
+                                    <option class="font-weight-bold text-dark"
+                                        <?= $value["frasa"] == 'sering'?'selected':'';?> value="sering">sering (0.8)
                                     </option>
-                                    <option class="font-weight-bold text-dark" value="tidak pernah">Tidak pernah (0)
+                                    <option class="font-weight-bold text-dark"
+                                        <?= $value["frasa"] == 'kadang'?'selected':'';?> value="kadang">Kadang (0.6)
+                                    </option>
+                                    <option class="font-weight-bold text-dark"
+                                        <?= $value["frasa"] == 'jarang'?'selected':'';?> value="jarang">Jarang (0.4)
+                                    </option>
+                                    <option class="font-weight-bold text-dark"
+                                        <?= $value["frasa"] == 'tidak tahu'?'selected':'';?> value="tidak tahu">Tidak
+                                        tahu (0.2)
+                                    </option>
+                                    <option class="font-weight-bold text-dark"
+                                        <?= $value["frasa"] == 'tidak pernah'?'selected':'';?> value="tidak pernah">
+                                        Tidak pernah (0)
                                     </option>
 
                                 </select>
@@ -786,7 +802,7 @@ $id_cf = $huruf. sprintf("%02s",$urutan);
                 </div>
             </div>
         </div>
-
+        <?php endforeach;?>
         <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

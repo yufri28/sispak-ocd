@@ -176,7 +176,7 @@ $urutan = (int)substr($id, 1,3);
 
 $urutan++;
 
-$huruf = 'P';
+$huruf = 'G';
 
 $id_penyakit = $huruf. sprintf("%02s",$urutan);
 

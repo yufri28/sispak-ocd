@@ -337,9 +337,9 @@ if (isset($ready)) {
                         miliki atau ingat, pada form yang tersedia.
                         <br> Cara menjawab tingkat keyakinan:
                     <ul>
-                        <li> Pilihan sangat yakin dapat dipilih jika Anda Sangat yakin merasakan gejala
+                        <li> Pilihan selalu dapat dipilih jika Anda Selalu merasakan gejala
                             Obsessive-Compulsive Disorder (OCD).</li>
-                        <li> Pilihan yakin dapat Anda pilih jika sering merasakan gejala OCD.</li>
+                        <li> Pilihan sering dapat Anda pilih jika sering merasakan gejala OCD.</li>
                         <li> Pilihan kadang dapat Anda pilih jika gejala tersebut terjadi hanya pada beberapa waktu
                             tertentu, tidak secara konsisten. Ini menunjukkan bahwa gejala tersebut muncul sporadis.
                         </li>

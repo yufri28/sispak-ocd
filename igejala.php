@@ -223,17 +223,17 @@ if (isset($_POST["diagnosis"])) {
 
                                 <label class="font-weight-bold pt-2">Pilih Tingkat Keyakinan</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="ptk" id="op1"
-                                        value="sangat yakin" required="">
+                                    <input class="form-check-input" type="radio" name="ptk" id="op1" value="selalu"
+                                        required="">
                                     <label class="form-check-label" for="op1">
-                                        Sangat yakin
+                                        Selalu
                                     </label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="ptk" id="op2" value="yakin">
+                                    <input class="form-check-input" type="radio" name="ptk" id="op2" value="sering">
                                     <label class="form-check-label" for="op2">
-                                        Yakin
+                                        Sering
                                     </label>
                                 </div>
 

@@ -419,12 +419,12 @@ $bkey = htmlspecialchars(strtolower(stripslashes($data["bkey"])));
 
 switch ($bkey) {
 
-	case 'sangat yakin':
+	case 'selalu':
 
 	$bobot = 1;
 	break;
 
-	case 'yakin':
+	case 'sering':
 
 	$bobot = 0.8;
 	break;
@@ -531,12 +531,12 @@ $bkey = htmlspecialchars(strtolower(stripslashes($data["ubkeyy"])));
 
 switch ($bkey) {
 
-	case 'sangat yakin':
+	case 'selalu':
 
 	$bobot = 1;
 	break;
 
-	case 'yakin':
+	case 'sering':
 
 	$bobot = 0.8;
 	break;
@@ -656,12 +656,12 @@ $ptk = htmlspecialchars(strtolower(stripslashes($data["ptk"])));
 
 switch ($ptk) {
 	
-	case 'sangat yakin':
+	case 'selalu':
 
 	$bobot = 1;
 	break;
 
-	case 'yakin':
+	case 'sering':
 
 	$bobot = 0.8;
 	break;
